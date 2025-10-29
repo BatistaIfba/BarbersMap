@@ -1,5 +1,3 @@
-
-
 def cadastrar_usuario(nome, email, cpf, senha, tipo_usuario):
     email = email.lower()
     from Main import CLIENTES, BARBEIROS

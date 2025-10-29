@@ -18,8 +18,6 @@ def menu():
     return opc
 
 def main():
-    cadastrar_usuario("batista", "batista@gmail.com", "09291376558", "senhalonga", "n")
-
     opc = 0
 
     while opc != 5:
