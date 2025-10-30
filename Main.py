@@ -1,21 +1,6 @@
-from cadastroElogin import cadastrar_usuario, fluxo_cadastrar, fluxo_login
-
-#Banco de dados em memória
-BARBEIROS = {}
-CLIENTES = {}
-
-def menu():
-    print("=============================")
-    print("|        Barber´sMap        |")
-    print("|   Serviços de barbeiros   |")
-    print("=============================")
-    print("1 - Buscar serviços disponiveis")
-    print("2 - Login")
-    print("3 - Cadastrar-se")
-    print("4 - Atendimento ao consumidor")
-    print("5 - Sair")
-    opc = int(input("Digite uma opção: "))
-    return opc
+from cadastroELogin import cadastrar_usuario, fluxo_cadastrar, fluxo_login
+from banco import BARBEIROS, CLIENTES
+from menu import menu
 
 def main():
     opc = 0

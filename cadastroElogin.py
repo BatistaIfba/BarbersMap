@@ -1,6 +1,8 @@
+from banco import CLIENTES, BARBEIROS
+
+
 def cadastrar_usuario(nome, email, cpf, senha, tipo_usuario):
     email = email.lower()
-    from Main import CLIENTES, BARBEIROS
     if cpf in CLIENTES or cpf in BARBEIROS: 
         print("Usuário já cadastrado!")
         return False
@@ -19,9 +21,7 @@ def cadastrar_usuario(nome, email, cpf, senha, tipo_usuario):
     return True
 
 def login(cpf, email, senha):
-    email = email.lower()
-    from Main import CLIENTES, BARBEIROS
-    
+    email = email.lower()    
     if cpf in CLIENTES:
         usuario = CLIENTES[cpf]
     elif cpf in BARBEIROS:
