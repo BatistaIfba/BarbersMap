@@ -1,4 +1,4 @@
-from cadastroELogin import cadastrar_usuario, fluxo_cadastrar, fluxo_login
+from cadastroElogin import cadastrar_usuario, fluxo_cadastrar, fluxo_login
 from banco import BARBEIROS, CLIENTES
 from menu import menu
 
