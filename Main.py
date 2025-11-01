@@ -1,5 +1,5 @@
 from cadastroElogin import cadastrar_usuario, fluxo_cadastrar, fluxo_login
-from banco import BARBEIROS, CLIENTES
+from banco import BARBEIROS, CLIENTES 
 from menu import menu
 
 def main():

@@ -1,13 +1,4 @@
-AGENDAMENTOS = [
-    {"barbeiro": "Bruno", "valor": 35.00, "status": "Concluido"},
-    {"barbeiro": "Pedro", "valor": 60.00, "status": "Concluido"},
-    {"barbeiro": "Bruno", "valor": 35.00, "status": "Concluido"},
-    {"barbeiro": "Pedro", "valor": 30.00, "status": "Concluido"},
-    {"barbeiro": "Bruno", "valor": 35.00, "status": "Concluido"},
-    {"barbeiro": "Pedro", "valor": 25.00, "status": "Concluido"},
-    {"barbeiro": "Bruno", "valor": 60.00, "status": "Cancelado"},
-    {"barbeiro": "Maria", "valor": 30.00, "status": "Concluido"},
-]
+from banco import  BARBEIROS
 
 def gerar_relatorio_faturamento_total():
     faturamento = 0
@@ -23,7 +14,7 @@ def gerar_relatorio_faturamento_total():
         "total_servicos_concluidos": agendamentos_concluidos
     }
 
-def gerar_relatorio_faturamento_barbeiro(nome_barbeiro):
+def gerar_relatorio_desempenho_barbeiro(nome_barbeiro):
     faturamento = 0
     agendamentos_concluidos = 0
     barbeiro_encontrado = False
@@ -48,10 +39,14 @@ def gerar_relatorio_faturamento_barbeiro(nome_barbeiro):
         "faturamento_total": faturamento,
         "total_servicos_concluidos": agendamentos_concluidos
     }
+
+
+
+    
+
          
 
-nome = input("Digite o nome do barbeiro: ")
-print(gerar_relatorio_faturamento_barbeiro(nome))
+
                
                
                
