@@ -1,6 +1,5 @@
-from cadastroElogin import cadastrar_usuario, fluxo_cadastrar, fluxo_login
-from banco import BARBEIROS, CLIENTES 
-from menu import menu
+from cadastroElogin import fluxo_cadastrar, fluxo_login, cadastrar_usuario
+from menu import menu, menu_sac, menu_cliente
 
 def main():
     opc = 0
@@ -10,15 +9,17 @@ def main():
 
         if opc == 1:
             print("Trabalho em andamento!")
+            break
         elif opc == 2:
             fluxo_login()
         elif opc == 3:
             fluxo_cadastrar()
         elif opc == 4: 
-            print("Trabalho em andamento!")
+            menu_sac()
         elif opc == 5:
             print("Adeus!")
         else:
             print("Opção inválida!")
+
 
 main()

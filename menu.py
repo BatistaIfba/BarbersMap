@@ -49,4 +49,19 @@ def Menu_adminstrador():
     print("2 - gerenciar usuarios")
     print("3 - Gerar serviços")
 
+def menu_sac():
+    print("=============================")
+    print("|        Barber´sMap        |")
+    print("|   Canais de Atendimento   |")
+    print("=============================")
+    print("Email: barbersmap@gmail.com")
+    print("Telefone e Whatsapp: (73) 98248-9941")
+    print("Redes Sociais: @BarbersMap")
+    print("1 - Sair")
+    opc = int(input("Digite uma opção: "))
+    while not opc == 1:
+        print("Opção invalida!")
+        opc = int(input("Digite uma opção: "))
+    return opc
+
 
