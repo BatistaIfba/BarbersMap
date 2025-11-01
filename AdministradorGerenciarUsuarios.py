@@ -18,11 +18,10 @@ def listar_usuarios():
 
 def deletar_usuarios():
    usuario = input("informe o cpf do usuario que deseja deletar:")
-   for cpf in ADMINISTRADORES.items():
-      if  usuario == administradores[cpf]:
-         del ADMINISTRADORES[cpf]
-         print('Usuario deletado com sucesso!')
-         return True
-      else:
-         print('O cpf informado não está cadastrado')
-         return False
+   if  usuario in ADMINISTRADORES:
+      del ADMINISTRADORES[usuario]
+      print('Usuario deletado com sucesso!')
+      return True
+   else:
+      print('O cpf informado não está cadastrado')
+      return False
