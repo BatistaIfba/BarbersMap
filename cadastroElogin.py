@@ -1,5 +1,4 @@
 from banco import CLIENTES, BARBEIROS, ADMINISTRADORES
-from menu import menu_cliente, menu_barbeiro
 from cliente import fluxo_cliente
 from barbeiro import fluxo_barbeiro
 from administador import fluxo_administrador
@@ -33,7 +32,6 @@ def login(cpf, email, senha):
         usuario = BARBEIROS[cpf]
     elif cpf in ADMINISTRADORES[cpf]:
         usuario = ADMINISTRADORES[cpf]
-
     else:
         print("Falha no login! Seu email, senha ou cpf podem estar incorretos, verifique suas informações e tente novamente!")
         return False
@@ -41,7 +39,7 @@ def login(cpf, email, senha):
     if usuario and usuario["senha"] == senha and usuario["email"] == email:
         print("Login realizado com sucesso!")
         if usuario["tipo_usuario"] == "cliente":
-            return fluxo_cliente()
+            return fluxo_cliente(cpf)
         elif usuario["tipo_usuario"] == "barbeiro":
             return fluxo_barbeiro()
         elif usuario["tipo_usuario"] == "administrador":

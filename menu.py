@@ -1,3 +1,5 @@
+from banco import ADMINISTRADORES, CLIENTES, BARBEIROS
+
 
 def menu():
     print("=============================")
@@ -40,6 +42,28 @@ def menu_cliente():
     print("6 - Sair")
     opc = int(input("Digite uma opção: "))
     return opc
+
+def menu_info_cliente(cpf):
+    print("=============================")
+    print("|        Barber´sMap        |")
+    print("|    Informações Pessoais   |")
+    print("=============================")   
+    print(f"Nome: {CLIENTES[cpf]["nome"]}")
+    #print(f"CPF: {CLIENTES[cpf]}")
+    print(f"Email: {CLIENTES[cpf]["email"]}")
+    print(f"Senha: {CLIENTES[cpf]["senha"]}")
+    print("=============================")
+    print("1 - Editar informações")
+    print("2 - Sair")
+    opc = int(input("Digite uma opção: "))
+    while opc>2 or opc<1:
+        print("Opção inválida!")
+        opc = int(input("Digite uma opção: "))
+    if opc == 1:
+        from cliente import editar_informacoes
+        editar_informacoes(cpf)
+
+
 
 def Menu_administrador():
     print("=============================")

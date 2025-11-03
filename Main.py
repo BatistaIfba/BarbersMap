@@ -1,5 +1,5 @@
-from cadastroElogin import fluxo_cadastrar, fluxo_login, cadastrar_usuario
-from menu import menu, menu_sac, menu_cliente
+from cadastroElogin import fluxo_cadastrar, fluxo_login
+from menu import menu, menu_sac
 
 def main():
     opc = 0
