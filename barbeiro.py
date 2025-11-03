@@ -2,10 +2,8 @@ from menu import menu_barbeiro, menu_sac
 
 def fluxo_barbeiro():
     opc = 0
-
     while opc != 7:
         opc = menu_barbeiro()
-
         if opc == 1:
             print("Trabalho em andamento")
         elif opc == 2:

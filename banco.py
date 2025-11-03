@@ -6,7 +6,13 @@ BARBEIROS = {
         "email": "barbeiro@gmail.com",
         "tipo_usuario": "barbeiro",
         "endereco": "Rua Arlindo, Bairro Dali, Número 29",
-        "sobre": "Eu tenho talento!, se nao gostar do corte eu te devolo"
+        "sobre": "Eu tenho talento!, se nao gostar do corte eu te devolo",
+        "agendamentos" : {
+
+        },
+        "historico": {
+            
+        }
     }
 }
 
