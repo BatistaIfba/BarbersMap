@@ -40,6 +40,11 @@ def gerar_relatorio_desempenho_barbeiro(nome_barbeiro):
         "total_servicos_concluidos": agendamentos_concluidos
     }
 
+def fluxo_GerarRelatórios():
+    print("====Gerar relatórios====")
+    print("1 - Gerar relatórios do faturamento total")
+    print("2 - gerar relatório de desempenho do barbeiro")
+    print("3 - Gerar relatório de serviços mais populares ")
 
 
     

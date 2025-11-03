@@ -1,7 +1,8 @@
-from banco import CLIENTES, BARBEIROS
+from banco import CLIENTES, BARBEIROS, ADMINISTRADORES
 from menu import menu_cliente, menu_barbeiro
 from cliente import fluxo_cliente
 from barbeiro import fluxo_barbeiro
+from administador import fluxo_administrador
 
 
 def cadastrar_usuario(nome, email, cpf, senha, tipo_usuario):
@@ -30,6 +31,9 @@ def login(cpf, email, senha):
         usuario = CLIENTES[cpf]
     elif cpf in BARBEIROS:
         usuario = BARBEIROS[cpf]
+    elif cpf in ADMINISTRADORES[cpf]:
+        usuario = ADMINISTRADORES[cpf]
+
     else:
         print("Falha no login! Seu email, senha ou cpf podem estar incorretos, verifique suas informações e tente novamente!")
         return False
@@ -38,8 +42,10 @@ def login(cpf, email, senha):
         print("Login realizado com sucesso!")
         if usuario["tipo_usuario"] == "cliente":
             return fluxo_cliente()
-        else:
+        elif usuario["tipo_usuario"] == "barbeiro":
             return fluxo_barbeiro()
+        elif usuario["tipo_usuario"] == "administrador":
+            return fluxo_administrador()
     else: 
         print("Falha no login! Seu email, senha ou cpf podem estar incorretos, verifique suas informações e tente novamente!")
         return False

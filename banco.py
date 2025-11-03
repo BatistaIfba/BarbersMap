@@ -18,9 +18,10 @@ CLIENTES = {
 }
 
 ADMINISTRADORES = {
-    "12345628910": {
+    "12345678910": {
         "nome": "admin",
         "email": "admin@gmail.com",
-        "senha": "123456781"
+        "senha": "12345678",
+        "tipo_usuario": "administrador"
     }
 }

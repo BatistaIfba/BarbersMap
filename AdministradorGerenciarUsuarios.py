@@ -17,11 +17,33 @@ def listar_usuarios():
 
 
 def deletar_usuarios():
+   listar_usuarios()
    usuario = input("informe o cpf do usuario que deseja deletar:")
    if  usuario in ADMINISTRADORES:
       del ADMINISTRADORES[usuario]
-      print('Usuario deletado com sucesso!')
+      print(f"Usuário Barbeiro com CPF {usuario} deletado com sucesso!")
       return True
+   elif usuario in BARBEIROS:
+        del BARBEIROS[usuario]
+        print(f"Usuário Barbeiro com CPF {usuario} deletado com sucesso!")
+        return True
+   elif usuario in CLIENTES:
+        del CLIENTES[usuario]
+        print(f"Usuário Cliente com CPF {usuario} deletado com sucesso!")
+        listar_usuarios()
+        return True 
+
+  
    else:
       print('O cpf informado não está cadastrado')
       return False
+
+def fluxo_gerenciar_usuarios():
+    print("====Gerenciar usuários====")
+    print("1 - Listar todos os usuários")
+    print("2 - deletar usuário")
+    print("3 - cadastrar usuario ")
+
+
+
+  

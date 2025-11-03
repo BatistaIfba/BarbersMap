@@ -41,7 +41,7 @@ def menu_cliente():
     opc = int(input("Digite uma opção: "))
     return opc
 
-def Menu_adminstrador():
+def Menu_administrador():
     print("=============================")
     print("         Administrador       ")
     print("=============================")
