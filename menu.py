@@ -63,8 +63,6 @@ def menu_info_cliente(cpf):
         from cliente import editar_informacoes
         editar_informacoes(cpf)
 
-
-
 def Menu_administrador():
     print("=============================")
     print("         Administrador       ")
@@ -72,6 +70,8 @@ def Menu_administrador():
     print("1 - Gerar relatórios")
     print("2 - gerenciar usuarios")
     print("3 - Gerar serviços")
+    opc = int(input("Digite uma opção: "))
+    return opc
 
 def menu_sac():
     print("=============================")

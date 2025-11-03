@@ -15,13 +15,13 @@ def cadastrar_usuario(nome, email, cpf, senha, tipo_usuario):
     if not len(cpf) == 11:
         print("Número de cpf inválido!")
         return False
-
-    print("Cadastro realizado com sucesso!")
     if tipo_usuario == "cliente":
         CLIENTES[cpf] = {"nome": nome.strip(), "senha": senha, "email": email, "tipo_usuario": tipo_usuario}
+        print("Cadastro realizado com sucesso!")
         return fluxo_cliente()
-    else: 
-        BARBEIROS[cpf] = {"nome": nome.strip(), "senha": senha, "email": email, "tipo_usuario": tipo_usuario}
+    elif tipo_usuario == "barbeiro": 
+        BARBEIROS[cpf] = {"nome": nome.strip(), "senha": senha, "email": email, "tipo_usuario": tipo_usuario, "endereco": input("Informe o endereço do seu local de trabalho: ") , "sobre": input("Escreva um breve resumo sobre você: ")}
+        print("Cadastro realizado com sucesso!")
         return fluxo_barbeiro()
 
 def login(cpf, email, senha):
@@ -30,7 +30,7 @@ def login(cpf, email, senha):
         usuario = CLIENTES[cpf]
     elif cpf in BARBEIROS:
         usuario = BARBEIROS[cpf]
-    elif cpf in ADMINISTRADORES[cpf]:
+    elif cpf in ADMINISTRADORES:
         usuario = ADMINISTRADORES[cpf]
     else:
         print("Falha no login! Seu email, senha ou cpf podem estar incorretos, verifique suas informações e tente novamente!")

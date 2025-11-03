@@ -4,7 +4,9 @@ BARBEIROS = {
         "nome": "barbeiroteste",
         "senha": "senhateste",
         "email": "barbeiro@gmail.com",
-        "tipo_usuario": "barbeiro"
+        "tipo_usuario": "barbeiro",
+        "endereco": "Rua Arlindo, Bairro Dali, Número 29",
+        "sobre": "Eu tenho talento!, se nao gostar do corte eu te devolo"
     }
 }
 

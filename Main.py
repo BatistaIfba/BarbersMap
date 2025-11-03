@@ -3,10 +3,8 @@ from menu import menu, menu_sac
 
 def main():
     opc = 0
-
     while opc != 5:
         opc = menu()
-
         if opc == 1:
             print("Trabalho em andamento!")
             break
@@ -20,6 +18,5 @@ def main():
             print("Adeus!")
         else:
             print("Opção inválida!")
-
 
 main()

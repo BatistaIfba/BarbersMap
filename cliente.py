@@ -3,10 +3,8 @@ from banco import CLIENTES
 
 def fluxo_cliente(cpf):
     opc = 0
-
     while opc != 6:
         opc = menu_cliente()
-
         if opc == 1:
             print("Trabalho em andamento")
         elif opc == 2:
