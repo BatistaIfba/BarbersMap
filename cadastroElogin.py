@@ -1,4 +1,4 @@
-from banco import CLIENTES, BARBEIROS, ADMINISTRADORES
+from banco import CLIENTES, BARBEIROS, ADMINISTRADORES, salvar_barbeiro, salvar_cliente
 from cliente import fluxo_cliente
 from barbeiro import fluxo_barbeiro
 from administador import fluxo_administrador
@@ -18,11 +18,13 @@ def cadastrar_usuario(nome, email, cpf, senha, tipo_usuario):
     if tipo_usuario == "cliente":
         CLIENTES[cpf] = {"nome": nome.strip(), "senha": senha, "email": email, "tipo_usuario": tipo_usuario}
         print("Cadastro realizado com sucesso!")
-        return fluxo_cliente()
+        salvar_cliente()
+        return fluxo_cliente(cpf)
     elif tipo_usuario == "barbeiro": 
         BARBEIROS[cpf] = {"nome": nome.strip(), "senha": senha, "email": email, "tipo_usuario": tipo_usuario, "endereco": input("Informe o endereço do seu local de trabalho: ") , "sobre": input("Escreva um breve resumo sobre você: ")}
         print("Cadastro realizado com sucesso!")
-        return fluxo_barbeiro()
+        salvar_barbeiro()
+        return fluxo_barbeiro(cpf)
 
 def login(cpf, email, senha):
     email = email.lower()    
@@ -41,9 +43,9 @@ def login(cpf, email, senha):
         if usuario["tipo_usuario"] == "cliente":
             return fluxo_cliente(cpf)
         elif usuario["tipo_usuario"] == "barbeiro":
-            return fluxo_barbeiro()
+            return fluxo_barbeiro(cpf)
         elif usuario["tipo_usuario"] == "administrador":
-            return fluxo_administrador()
+            return fluxo_administrador(cpf)
     else: 
         print("Falha no login! Seu email, senha ou cpf podem estar incorretos, verifique suas informações e tente novamente!")
         return False
