@@ -1,4 +1,5 @@
-from banco import BARBEIROS, ADMINISTRADORES, CLIENTES
+from banco import BARBEIROS, ADMINISTRADORES, CLIENTES, salvar_barbeiro, salvar_cliente
+from administador import Menu_administrador
 
 def listar_usuarios():
    print("\n=== Lista de Usuários ===")
@@ -30,40 +31,87 @@ def deletar_usuarios():
    elif usuario in CLIENTES:
         del CLIENTES[usuario]
         print(f"Usuário Cliente com CPF {usuario} deletado com sucesso!")
+        salvar_barbeiro()
+        salvar_cliente()
         listar_usuarios()
-        return True 
+        return True
 
   
    else:
       print('O cpf informado não está cadastrado')
       return False
 
+def cadastrar_usuario_administrador(nome, email, cpf, senha, tipo_usuario):
+    listar_usuarios()
+    email = email.lower()
+    if cpf in CLIENTES or cpf in BARBEIROS: 
+        print("Usuário já cadastrado!")
+        return False
+    if len(senha) < 8:
+        print("Senha muito curta! Use pelo menos 8 caracteres!")
+        return False
+    if not len(cpf) == 11:
+        print("Número de cpf inválido!")
+        return False
+    if tipo_usuario == "cliente":
+        CLIENTES[cpf] = {"nome": nome.strip(), "senha": senha, "email": email, "tipo_usuario": tipo_usuario}
+        print("Cadastro realizado com sucesso!")
+        salvar_cliente()
+    elif tipo_usuario == "barbeiro": 
+        BARBEIROS[cpf] = {"nome": nome.strip(), "senha": senha, "email": email, "tipo_usuario": tipo_usuario, "endereco": input("Informe o endereço do seu local de trabalho: ") , "sobre": input("Escreva um breve resumo sobre você: ")}
+        print("Cadastro realizado com sucesso!")
+        salvar_barbeiro()
+    elif tipo_usuario == "administrador":
+        ADMINISTRADORES[cpf] = {"nome": nome.strip(), "senha": senha, "email": email, "tipo_usuario": tipo_usuario, "endereco": input("Informe o endereço do seu local de trabalho: ") , "sobre": input("Escreva um breve resumo sobre você: ")}
+        print("Cadastro realizado com sucesso!")
+         
+    
+def fluxo_cadastrar_administrador():
+    print("=============================")
+    print("       Cadastre um usuário   ")
+    print("=============================")
+    nome = input("Nome: ").strip()
+    email = input("Email: ").strip()
+    cpf = input("CPF: ").strip()
+    senha = input("Senha: ").strip()
+    tipo_usuario = input("informe o tipo do usuário(cliente, barbeiro, administrador):").strip().lower()
+    cadastrar_usuario_administrador(nome, email, cpf, senha, tipo_usuario)
+
 def menu_gerenciar_usuarios():
     print("====Gerenciar usuários====")
     print("1 - Listar todos os usuários")
     print("2 - deletar usuário")
     print("3 - cadastrar usuario ")
-    print("3 - sair")
-    opc = int(input("digite um opção: "))
+    print("4 - voltar")
+
+
+    try:
+        entrada = input("digite um opção: ").strip() 
+        opc = int(entrada)
+        return opc
+    except ValueError:
+        print("Opção inválida! Digite um número.")
+        return 0
+
 
 def fluxo_gerenciar_usuarios():
     opc = 0
 
-    while opc != 4:
+    while opc != 4:  
         opc = menu_gerenciar_usuarios()
 
         if opc == 1:
-            return listar_usuarios
+            listar_usuarios()
         elif opc == 2:
-            return deletar_usuarios
+            deletar_usuarios()
         elif opc == 3:
-            print("Trabalho em andamento")
+            fluxo_cadastrar_administrador()
         elif opc == 4:
-            print("Até logo!")
+            print("Voltando ao menu anterior...")
+            return  
         else:
             print("opção inválida!")
-    
 
 
 
-  
+

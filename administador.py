@@ -1,7 +1,7 @@
 from menu import Menu_administrador
 from AdministradorGerenciarUsuarios import fluxo_gerenciar_usuarios
 
-def fluxo_administrador():
+def fluxo_administrador(cpf):
     opc = 0
 
     while opc != 4:

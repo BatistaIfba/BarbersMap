@@ -1,6 +1,6 @@
 from menu import menu_barbeiro, menu_sac
 
-def fluxo_barbeiro():
+def fluxo_barbeiro(cpf):
     opc = 0
     while opc != 7:
         opc = menu_barbeiro()
