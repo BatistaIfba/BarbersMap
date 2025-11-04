@@ -38,11 +38,31 @@ def deletar_usuarios():
       print('O cpf informado não está cadastrado')
       return False
 
-def fluxo_gerenciar_usuarios():
+def menu_gerenciar_usuarios():
     print("====Gerenciar usuários====")
     print("1 - Listar todos os usuários")
     print("2 - deletar usuário")
     print("3 - cadastrar usuario ")
+    print("3 - sair")
+    opc = int(input("digite um opção: "))
+
+def fluxo_gerenciar_usuarios():
+    opc = 0
+
+    while opc != 4:
+        opc = menu_gerenciar_usuarios()
+
+        if opc == 1:
+            return listar_usuarios
+        elif opc == 2:
+            return deletar_usuarios
+        elif opc == 3:
+            print("Trabalho em andamento")
+        elif opc == 4:
+            print("Até logo!")
+        else:
+            print("opção inválida!")
+    
 
 
 

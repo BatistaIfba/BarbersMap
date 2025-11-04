@@ -1,5 +1,4 @@
 from menu import Menu_administrador
-from AdministradorGerarRelatorios import fluxo_GerarRelatórios
 from AdministradorGerenciarUsuarios import fluxo_gerenciar_usuarios
 
 def fluxo_administrador():
@@ -9,7 +8,7 @@ def fluxo_administrador():
         opc = Menu_administrador()
 
         if opc == 1:
-            return fluxo_GerarRelatórios()
+            print("Trabalho em andamento")
         elif opc == 2:
             return fluxo_gerenciar_usuarios()
         elif opc == 3:
