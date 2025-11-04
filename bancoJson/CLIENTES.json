@@ -1,0 +1,24 @@
+{
+    "11111111111": {
+        "nome": "clienteteste",
+        "senha": "senhateste",
+        "email": "cliente@gmail.com",
+        "tipo_usuario": "cliente",
+        "agendamentos": [
+            {
+                "barbeiro": "BarbeiroTeste",
+                "servico": "Corte Social",
+                "valor": 45,
+                "data": "08/11"
+            }
+        ],
+        "historico": [
+            {
+                "barbeiro": "BarbeiroTeste",
+                "servico": "Corte Social",
+                "valor": 45,
+                "data": "01/11"
+            }
+        ]
+    }
+}

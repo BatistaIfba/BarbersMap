@@ -1,5 +1,5 @@
 from menu import menu_cliente, menu_sac, menu_info_cliente
-from banco import CLIENTES
+from banco import CLIENTES, salvar_cliente  
 
 def fluxo_cliente(cpf):
     opc = 0
@@ -31,3 +31,4 @@ def editar_informacoes(cpf):
     CLIENTES[cpf]["email"] = email
     CLIENTES[cpf]["senha"] = senha
     print("Informações alteradas com sucesso!")
+    salvar_cliente()

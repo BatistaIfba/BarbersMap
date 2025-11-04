@@ -1,6 +1,7 @@
 from cadastroElogin import fluxo_cadastrar, fluxo_login
 from menu import menu, menu_sac
 
+
 def main():
     opc = 0
     while opc != 5:
@@ -20,3 +21,4 @@ def main():
             print("Opção inválida!")
 
 main()
+
