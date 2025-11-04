@@ -61,7 +61,7 @@ def cadastrar_usuario_administrador(nome, email, cpf, senha, tipo_usuario):
         print("Cadastro realizado com sucesso!")
         salvar_barbeiro()
     elif tipo_usuario == "administrador":
-        ADMINISTRADORES[cpf] = {"nome": nome.strip(), "senha": senha, "email": email, "tipo_usuario": tipo_usuario, "endereco": input("Informe o endereço do seu local de trabalho: ") , "sobre": input("Escreva um breve resumo sobre você: ")}
+        ADMINISTRADORES[cpf] = {"nome": nome.strip(), "senha": senha, "email": email, "tipo_usuario": tipo_usuario} 
         print("Cadastro realizado com sucesso!")
         salvar_admin
          
