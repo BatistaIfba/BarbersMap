@@ -63,7 +63,7 @@ def cadastrar_usuario_administrador(nome, email, cpf, senha, tipo_usuario):
     elif tipo_usuario == "administrador":
         ADMINISTRADORES[cpf] = {"nome": nome.strip(), "senha": senha, "email": email, "tipo_usuario": tipo_usuario} 
         print("Cadastro realizado com sucesso!")
-        salvar_admin
+        salvar_admin()
          
     
 def fluxo_cadastrar_administrador():
@@ -75,8 +75,13 @@ def fluxo_cadastrar_administrador():
     cpf = input("CPF: ").strip()
     senha = input("Senha: ").strip()
     tipo_usuario = input("informe o tipo do usuário(cliente, barbeiro, administrador):").strip().lower()
-    cadastrar_usuario_administrador(nome, email, cpf, senha, tipo_usuario)
-
+    
+    if tipo_usuario in ["cliente", "barbeiro", "administrador"]:
+        cadastrar_usuario_administrador(nome, email, cpf, senha, tipo_usuario)
+    else:
+        print("Tipo de usuário inválido! Use 'cliente', 'barbeiro' ou 'administrador'")
+        return
+    
 def menu_gerenciar_usuarios():
     print("====Gerenciar usuários====")
     print("1 - Listar todos os usuários")
