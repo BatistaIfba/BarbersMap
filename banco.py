@@ -24,3 +24,4 @@ def salvar_barbeiro():
 def salvar_admin():
     with open("bancoJson/ADMINISTRADORES.json", "w") as f:
         json.dump(ADMINISTRADORES, f, indent=4)
+

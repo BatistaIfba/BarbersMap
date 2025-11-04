@@ -1,4 +1,4 @@
-from banco import BARBEIROS, ADMINISTRADORES, CLIENTES, salvar_barbeiro, salvar_cliente
+from banco import BARBEIROS, ADMINISTRADORES, CLIENTES, salvar_barbeiro, salvar_cliente, salvar_admin
 from administador import Menu_administrador
 
 def listar_usuarios():
@@ -42,7 +42,6 @@ def deletar_usuarios():
       return False
 
 def cadastrar_usuario_administrador(nome, email, cpf, senha, tipo_usuario):
-    listar_usuarios()
     email = email.lower()
     if cpf in CLIENTES or cpf in BARBEIROS: 
         print("Usuário já cadastrado!")
@@ -64,6 +63,7 @@ def cadastrar_usuario_administrador(nome, email, cpf, senha, tipo_usuario):
     elif tipo_usuario == "administrador":
         ADMINISTRADORES[cpf] = {"nome": nome.strip(), "senha": senha, "email": email, "tipo_usuario": tipo_usuario, "endereco": input("Informe o endereço do seu local de trabalho: ") , "sobre": input("Escreva um breve resumo sobre você: ")}
         print("Cadastro realizado com sucesso!")
+        salvar_admin
          
     
 def fluxo_cadastrar_administrador():
