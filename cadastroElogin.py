@@ -2,28 +2,34 @@ from banco import CLIENTES, BARBEIROS, ADMINISTRADORES, salvar_barbeiro, salvar_
 from cliente import fluxo_cliente
 from barbeiro import fluxo_barbeiro
 from administador import fluxo_administrador
-
+import os
+import time
 
 def cadastrar_usuario(nome, email, cpf, senha, tipo_usuario):
     email = email.lower()
     if cpf in CLIENTES or cpf in BARBEIROS: 
         print("Usuário já cadastrado!")
+        time.sleep(2)
         return False
     if len(senha) < 8:
         print("Senha muito curta! Use pelo menos 8 caracteres!")
+        time.sleep(2)
         return False
     if not len(cpf) == 11:
         print("Número de cpf inválido!")
+        time.sleep(2)
         return False
     if tipo_usuario == "cliente":
         CLIENTES[cpf] = {"nome": nome.strip(), "senha": senha, "email": email, "tipo_usuario": tipo_usuario}
         print("Cadastro realizado com sucesso!")
         salvar_cliente()
+        time.sleep(2)
         return fluxo_cliente(cpf)
     elif tipo_usuario == "barbeiro": 
         BARBEIROS[cpf] = {"nome": nome.strip(), "senha": senha, "email": email, "tipo_usuario": tipo_usuario, "endereco": input("Informe o endereço do seu local de trabalho: ") , "sobre": input("Escreva um breve resumo sobre você: ")}
         print("Cadastro realizado com sucesso!")
         salvar_barbeiro()
+        time.sleep(2)
         return fluxo_barbeiro(cpf)
 
 def login(cpf, email, senha):
@@ -36,10 +42,12 @@ def login(cpf, email, senha):
         usuario = ADMINISTRADORES[cpf]
     else:
         print("Falha no login! Seu email, senha ou cpf podem estar incorretos, verifique suas informações e tente novamente!")
+        time.sleep(2)
         return False
     
     if usuario and usuario["senha"] == senha and usuario["email"] == email:
         print("Login realizado com sucesso!")
+        time.sleep(2)
         if usuario["tipo_usuario"] == "cliente":
             return fluxo_cliente(cpf)
         elif usuario["tipo_usuario"] == "barbeiro":
@@ -48,9 +56,11 @@ def login(cpf, email, senha):
             return fluxo_administrador(cpf)
     else: 
         print("Falha no login! Seu email, senha ou cpf podem estar incorretos, verifique suas informações e tente novamente!")
+        time.sleep(2)
         return False
 
 def fluxo_cadastrar():
+    os.system('cls') 
     print("=============================")
     print("       Crie sua conta!       ")
     print("=============================")
@@ -66,6 +76,7 @@ def fluxo_cadastrar():
     cadastrar_usuario(nome, email, cpf, senha, tipo_usuario)
     
 def fluxo_login():
+    os.system('cls') 
     print("=============================")
     print("            Login            ")
     print("=============================")

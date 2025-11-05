@@ -1,7 +1,9 @@
 from banco import ADMINISTRADORES, CLIENTES, BARBEIROS
+import os
 
 
 def menu():
+    os.system('cls') 
     print("=============================")
     print("|        Barber´sMap        |")
     print("|   Serviços de barbeiros   |")
@@ -15,6 +17,7 @@ def menu():
     return opc
 
 def menu_barbeiro():
+    os.system('cls') 
     print("=============================")
     print("|        Barber´sMap        |")
     print("|   Interface do Barbeiro   |")
@@ -30,6 +33,7 @@ def menu_barbeiro():
     return opc
 
 def menu_cliente():
+    os.system('cls') 
     print("=============================")
     print("|        Barber´sMap        |")
     print("|   Serviços de barbeiros   |")
@@ -44,6 +48,7 @@ def menu_cliente():
     return opc
 
 def menu_info_cliente(cpf):
+    os.system('cls') 
     print("=============================")
     print("|        Barber´sMap        |")
     print("|    Informações Pessoais   |")
@@ -64,6 +69,7 @@ def menu_info_cliente(cpf):
         editar_informacoes(cpf)
 
 def Menu_administrador():
+    os.system('cls') 
     print("=============================")
     print("         Administrador       ")
     print("=============================")
@@ -74,6 +80,7 @@ def Menu_administrador():
     return opc
 
 def menu_sac():
+    os.system('cls') 
     print("=============================")
     print("|        Barber´sMap        |")
     print("|   Canais de Atendimento   |")

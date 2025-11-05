@@ -1,8 +1,10 @@
 from cadastroElogin import fluxo_cadastrar, fluxo_login
 from menu import menu, menu_sac
+import os
 
 
 def main():
+    os.system('cls') 
     opc = 0
     while opc != 5:
         opc = menu()
