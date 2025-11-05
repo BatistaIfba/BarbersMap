@@ -25,16 +25,11 @@
         ],
         "agendamentos": [
             {
-                "cliente": "Lucas",
+                "cliente": "clienteteste",
+                "cpf": "11111111111",
                 "servico": "Corte Social",
                 "valor": 45,
-                "data": "13/11"
-            },
-            {
-                "cliente": "Batista",
-                "servico": "Barba Simples",
-                "valor": 20,
-                "data": "14/11"
+                "data": "08/11"
             }
         ],
         "historico": [

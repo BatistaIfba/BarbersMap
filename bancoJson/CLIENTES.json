@@ -2,11 +2,12 @@
     "11111111111": {
         "nome": "clienteteste",
         "senha": "senhateste",
-        "email": "cliente@gmail.com",
+        "email": "teste@gmail.com",
         "tipo_usuario": "cliente",
         "agendamentos": [
             {
-                "barbeiro": "BarbeiroTeste",
+                "barbeiro": "barbeiroteste",
+                "cpf": "00000000000",
                 "servico": "Corte Social",
                 "valor": 45,
                 "data": "08/11"
@@ -15,6 +16,7 @@
         "historico": [
             {
                 "barbeiro": "BarbeiroTeste",
+                "cpf": "00000000000",
                 "servico": "Corte Social",
                 "valor": 45,
                 "data": "01/11"
