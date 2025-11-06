@@ -54,7 +54,7 @@ def menu_info_cliente(cpf):
     print("|    Informações Pessoais   |")
     print("=============================")   
     print(f"Nome: {CLIENTES[cpf]["nome"]}")
-    #print(f"CPF: {CLIENTES[cpf]}")
+    print(f"CPF: {CLIENTES[cpf]}")
     print(f"Email: {CLIENTES[cpf]["email"]}")
     print(f"Senha: {CLIENTES[cpf]["senha"]}")
     print("=============================")
@@ -69,7 +69,7 @@ def menu_info_cliente(cpf):
         editar_informacoes(cpf)
 
 def Menu_administrador():
-    #os.system('cls') 
+    os.system('cls') 
     print("=============================")
     print("         Administrador       ")
     print("=============================")

@@ -1,5 +1,7 @@
 from menu import Menu_administrador
 from banco import BARBEIROS, ADMINISTRADORES, CLIENTES, salvar_barbeiro, salvar_cliente, salvar_admin
+import os
+import time
 
 def fluxo_administrador(cpf):
     opc = 0
@@ -33,12 +35,35 @@ def listar_usuarios():
    for cpf, clientes_data in CLIENTES.items():
       print(f"cpf: {cpf} | nome: {clientes_data['nome']} | email: {clientes_data['email']} | senha: {clientes_data['senha']}")
 
+def deletar_usuario(cpf):
+    if cpf in CLIENTES:
+        confirmacao = input(f"Tem certeza que deseja deletar o cliente com CPF {cpf}? (s/n): ").strip().lower()
+        if confirmacao == 's':
+            del CLIENTES[cpf]
+            print(f"\n Cliente com CPF {cpf} excluído com sucesso.")
+        else:
+            print("\n Exclusão cancelada.")
+    elif cpf in BARBEIROS:
+        confirmacao = input(f"Tem certeza que deseja deletar o barbeiro com CPF {cpf}? (s/n): ").strip().lower()
+        if confirmacao == 's':
+            del BARBEIROS[cpf]
+            print(f"\n Barbeiro com CPF {cpf} excluído com sucesso.")
+        else:
+            print("\n Exclusão cancelada.")
+    elif cpf in ADMINISTRADORES:
+        if len(ADMINISTRADORES) == 1:
+            print("\n Não é possível deletar o único administrador do sistema.")
+            return
+
 def fluxo_gerenciar_usuarios(cpf):
-    print("====Gerenciar usuários====")
+    os.system('cls')
+    print("=============================")
+    print("      gerenciar usuários     ")
+    print("=============================")
 
     listar_usuarios()
     opc = 0
-    cpf = input('Informe o cpf do usuario que deseja gerenciar: ').strip()
+    cpf = input('\nInforme o cpf do usuario que deseja gerenciar: ').strip()
     
     if cpf in CLIENTES:
         print("\nDados do usuário Cliente:")
@@ -59,6 +84,7 @@ def fluxo_gerenciar_usuarios(cpf):
         print(f"Senha: {ADMINISTRADORES[cpf]['senha']}")
     else:
         print("CPF não encontrado")
+        time.sleep(2)
         return fluxo_administrador(cpf)
     
     print("\n1 - editar usuário")
@@ -71,9 +97,12 @@ def fluxo_gerenciar_usuarios(cpf):
         if opc == 1:
             print('Em desenvolvimento')
         elif opc == 2:
-            print('Em desenvolvimento')
+           deletar_usuario(cpf)
+           listar_usuarios()
+           time.sleep(3)
+           return fluxo_administrador(cpf)
         elif opc == 3:
-            return
+           return fluxo_administrador(cpf)
         else:
             print('Opção inválida')
     except ValueError:
