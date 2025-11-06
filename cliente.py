@@ -96,6 +96,13 @@ def agendamentos_cliente(cpf):
                             BARBEIROS[CLIENTES[cpf]["agendamentos"][i]["cpf"]]["historico"].append(BARBEIROS[CLIENTES[cpf]["agendamentos"][i]["cpf"]]["agendamentos"][I])
                             del BARBEIROS[CLIENTES[cpf]["agendamentos"][i]["cpf"]]["agendamentos"][I]
                             del CLIENTES[cpf]["agendamentos"][i]
+                            nota = float(input("De uma nota para o serviço [0 a 5]: "))
+                            while nota>5 or nota<0:
+                                print("A nota tem que ser entre 0 e 5!")
+                                nota = float(input("De uma nota para o serviço [0 a 5]: "))
+                            for P in range(len(BARBEIROS[CLIENTES[cpf]["historico"][i]["cpf"]]["servicos"])):
+                                if BARBEIROS[CLIENTES[cpf]["historico"][i]["cpf"]]["servicos"][i]["nome"] == CLIENTES[cpf]["historico"][len(CLIENTES[cpf]["historico"])-1]["servico"]:
+                                    BARBEIROS[CLIENTES[cpf]["historico"][i]["cpf"]]["servicos"][i]["avaliacao"].append(nota)
                             print("Agendamento concluido! Muito obrigado!")
                             #salvar_cliente()
                             #salvar_barbeiro()

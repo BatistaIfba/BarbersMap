@@ -10,17 +10,20 @@
             {
                 "nome": "Corte Social",
                 "valor": 45,
-                "tempo": 40
+                "tempo": 40, 
+                "avaliacao": []
             },
             {
                 "nome": "Barba Simples",
                 "valor": 20,
-                "tempo": 20
+                "tempo": 20,
+                "avaliacao": []
             },
             {
                 "nome": "Corte na Tesoura",
                 "valor": 55,
-                "tempo": 50
+                "tempo": 50,
+                "avaliacao": []
             }
         ],
         "agendamentos": [
