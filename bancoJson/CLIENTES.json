@@ -15,7 +15,7 @@
         ],
         "historico": [
             {
-                "barbeiro": "BarbeiroTeste",
+                "barbeiro": "barbeiroteste",
                 "cpf": "00000000000",
                 "servico": "Corte Social",
                 "valor": 45,

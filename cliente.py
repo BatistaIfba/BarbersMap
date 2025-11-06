@@ -14,7 +14,7 @@ def fluxo_cliente(cpf):
         elif opc == 3:
             agendamentos_cliente(cpf)
         elif opc == 4:
-            print("Trabalho em andamento")
+            historico_cliente(cpf)
         elif opc == 5:
             menu_sac()
         elif opc == 6:
@@ -26,14 +26,24 @@ def fluxo_cliente(cpf):
 
 #Adicionar melhorias de controle de senha e email!
 def editar_informacoes(cpf):
+    print(f"\n\n{BARBEIROS}\n\n")
     nome = input("Informe seu novo nome: ")
     email = input("Informe seu novo email: ")
     senha = input("informe sua nova senha: ")
     CLIENTES[cpf]["nome"] = nome
     CLIENTES[cpf]["email"] = email
     CLIENTES[cpf]["senha"] = senha
+    for chave in BARBEIROS:
+        for I in range(len(BARBEIROS[chave]["agendamentos"])):
+            if BARBEIROS[chave]["agendamentos"][I]["cpf"] == cpf:
+                BARBEIROS[chave]["agendamentos"][I]["cliente"] = nome
+        for i in range(len(BARBEIROS[chave]["historico"])):
+            if BARBEIROS[chave]["historico"][i]["cpf"] == cpf:
+                BARBEIROS[chave]["historico"][i]["cliente"] = nome
     print("Informações alteradas com sucesso!")
-    salvar_cliente()
+    print(f"\n\n{BARBEIROS}\n\n")
+    time.sleep(10)
+    #salvar_cliente()
 
 def agendamentos_cliente(cpf):
     os.system('cls') 
@@ -55,9 +65,10 @@ def agendamentos_cliente(cpf):
             opc = int(input("Digite uma opção: "))
     else:
         print("1 - Cancelar agendamento")
-        print("2 - Voltar")
+        print("2 - Concluir agendamento")
+        print("3 - Voltar")
         opc = int(input("Digite uma opção: "))
-        while opc>2 or opc<1:
+        while opc>3 or opc<1:
             print("Opção inválida!")
             opc = int(input("Digite uma opção: "))
         if opc == 1:
@@ -68,10 +79,46 @@ def agendamentos_cliente(cpf):
                         if cpf == BARBEIROS[CLIENTES[cpf]["agendamentos"][i]["cpf"]]["agendamentos"][I]["cpf"]:
                             del BARBEIROS[CLIENTES[cpf]["agendamentos"][i]["cpf"]]["agendamentos"][I]
                             del CLIENTES[cpf]["agendamentos"][i]
-                    print("Agendamento cancelado!")
-                    time.sleep(2)
-                    break
+                            print("Agendamento cancelado!")
+                            #salvar_cliente()
+                            #salvar_barbeiro()
+                            time.sleep(2)
+                            break
+                else:
+                    print("Serviço não encontrado!")
+        elif opc == 2:
+            servico = input("Informe o nome do serviço que deseja confirmar a realização: ")
+            for i in range(len(CLIENTES[cpf]["agendamentos"])):
+                if servico.lower().strip() == CLIENTES[cpf]["agendamentos"][i]["servico"].lower().strip():
+                    for I in range(len(BARBEIROS[CLIENTES[cpf]["agendamentos"][i]["cpf"]]["agendamentos"])):
+                        if cpf == BARBEIROS[CLIENTES[cpf]["agendamentos"][i]["cpf"]]["agendamentos"][I]["cpf"]:
+                            CLIENTES[cpf]["historico"].append(CLIENTES[cpf]["agendamentos"][i])
+                            BARBEIROS[CLIENTES[cpf]["agendamentos"][i]["cpf"]]["historico"].append(BARBEIROS[CLIENTES[cpf]["agendamentos"][i]["cpf"]]["agendamentos"][I])
+                            del BARBEIROS[CLIENTES[cpf]["agendamentos"][i]["cpf"]]["agendamentos"][I]
+                            del CLIENTES[cpf]["agendamentos"][i]
+                            print("Agendamento concluido! Muito obrigado!")
+                            #salvar_cliente()
+                            #salvar_barbeiro()
+                            time.sleep(2)
+                            break
+                    else:
+                        print("Serviço não encontrado!")
 
-        
-
-        
+def historico_cliente(cpf):
+    os.system('cls') 
+    print("=============================")
+    print("|        Barber´sMap        |")
+    print("|         Histórico         |")
+    print("=============================")
+    for i in range(len(CLIENTES[cpf]["historico"])):
+        print(f"Serviço concluido N{i+1}°:")
+        print(f"Serviço: {CLIENTES[cpf]["historico"][i]["servico"]}")
+        print(f"Barbeiro: {CLIENTES[cpf]["historico"][i]["barbeiro"]}")
+        print(f"Valor: R${CLIENTES[cpf]["historico"][i]["valor"]}  -  Data: {CLIENTES[cpf]["historico"][i]["data"]}\n")
+    if len(CLIENTES[cpf]["historico"]) == 0:
+        print("Histórico vazio!\n")
+    print("1 - Voltar")
+    opc = int(input("Digite uma opção: "))
+    while opc != 1:
+        print("Opção inválida!")
+        opc = int(input("Digite uma opção: "))
