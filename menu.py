@@ -69,7 +69,7 @@ def menu_info_cliente(cpf):
         editar_informacoes(cpf)
 
 def Menu_administrador():
-    os.system('cls') 
+    #os.system('cls') 
     print("=============================")
     print("         Administrador       ")
     print("=============================")
