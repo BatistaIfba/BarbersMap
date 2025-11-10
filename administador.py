@@ -41,6 +41,7 @@ def deletar_usuario(cpf):
         if confirmacao == 's':
             del CLIENTES[cpf]
             print(f"\n Cliente com CPF {cpf} excluído com sucesso.")
+            #salvar_cliente()
         else:
             print("\n Exclusão cancelada.")
     elif cpf in BARBEIROS:
@@ -48,12 +49,59 @@ def deletar_usuario(cpf):
         if confirmacao == 's':
             del BARBEIROS[cpf]
             print(f"\n Barbeiro com CPF {cpf} excluído com sucesso.")
+            #salvar_barbeiro()
         else:
             print("\n Exclusão cancelada.")
     elif cpf in ADMINISTRADORES:
         if len(ADMINISTRADORES) == 1:
             print("\n Não é possível deletar o único administrador do sistema.")
             return
+
+def editar_usuario(cpf):
+    if cpf in CLIENTES:
+            dado = input('Qual informação deseja alterar(nome, email ou senha): ').lower().strip()
+            
+            if dado == 'nome':
+                novo_dado = input('informe o novo nome:')
+                CLIENTES[cpf]['nome'] = novo_dado
+                #salvar_cliente()
+                print('nome atualizado com sucesso!')
+            elif dado == 'email':
+                novo_dado = input('informe o novo email:')
+                CLIENTES[cpf]['email'] = novo_dado
+                #salvar_cliente()
+                print('email atualizado com sucesso!')
+            elif dado == 'senha':
+                novo_dado = input('informe a nova senha:')
+                CLIENTES[cpf]['senha'] = novo_dado
+                #salvar_cliente()
+                print('senha atualizada com sucesso!')
+    elif cpf in BARBEIROS:
+            dado = input('Qual informação deseja alterar(nome, email ou senha): ').lower().strip()
+            
+            if dado == 'nome':
+                novo_dado = input('informe o novo nome:')
+                BARBEIROS[cpf]['nome'] = novo_dado
+                #salvar_barbeiro()
+                print('nome atualizado com sucesso!')
+            elif dado == 'email':
+                novo_dado = input('informe o novo email:')
+                BARBEIROS[cpf]['email'] = novo_dado
+                #salvar_barbeiro()
+                print('email atualizado com sucesso!')
+            elif dado == 'senha':
+                novo_dado = input('informe a nova senha:')
+                BARBEIROS[cpf]['senha'] = novo_dado
+                #salvar_barbeiro()
+                print('senha atualizada com sucesso!')
+    else:
+        print('não é possível editar esse usuario!"')
+        return
+
+
+            
+
+     
 
 def fluxo_gerenciar_usuarios(cpf):
     os.system('cls')
@@ -78,10 +126,10 @@ def fluxo_gerenciar_usuarios(cpf):
         print(f"Senha: {BARBEIROS[cpf]['senha']}")
         print(f"histórico {BARBEIROS[cpf]['historico']}")
     elif cpf in ADMINISTRADORES:
-        print("\nDados do usuário Administrador:")
-        print(f"Nome: {ADMINISTRADORES[cpf]['nome']}")
-        print(f"Email: {ADMINISTRADORES[cpf]['email']}")
-        print(f"Senha: {ADMINISTRADORES[cpf]['senha']}")
+        os.system('cls')
+        print('Não é possivel gerenciar esse usuário!')
+        time.sleep(3)
+        return fluxo_administrador
     else:
         print("CPF não encontrado")
         time.sleep(2)
@@ -95,7 +143,10 @@ def fluxo_gerenciar_usuarios(cpf):
         opc = int(input("Escolha uma opção: "))
 
         if opc == 1:
-            print('Em desenvolvimento')
+            editar_usuario(cpf)
+            listar_usuarios()
+            time.sleep(3)
+            return fluxo_administrador(cpf)
         elif opc == 2:
            deletar_usuario(cpf)
            listar_usuarios()
