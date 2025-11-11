@@ -1,5 +1,5 @@
 from menu import menu_cliente, menu_sac, menu_info_cliente
-from banco import CLIENTES, BARBEIROS, salvar_cliente  
+from banco import CLIENTES, BARBEIROS, salvar_cliente, salvar_barbeiro
 import os
 import time
 
@@ -43,7 +43,7 @@ def editar_informacoes(cpf):
     print("Informações alteradas com sucesso!")
     print(f"\n\n{BARBEIROS}\n\n")
     time.sleep(10)
-    #salvar_cliente()
+    salvar_cliente()
 
 def agendamentos_cliente(cpf):
     os.system('cls') 
@@ -80,8 +80,8 @@ def agendamentos_cliente(cpf):
                             del BARBEIROS[CLIENTES[cpf]["agendamentos"][i]["cpf"]]["agendamentos"][I]
                             del CLIENTES[cpf]["agendamentos"][i]
                             print("Agendamento cancelado!")
-                            #salvar_cliente()
-                            #salvar_barbeiro()
+                            salvar_cliente()
+                            salvar_barbeiro()
                             time.sleep(2)
                             break
                 else:

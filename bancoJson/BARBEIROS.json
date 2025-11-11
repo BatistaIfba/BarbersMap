@@ -11,29 +11,36 @@
                 "nome": "Corte Social",
                 "valor": 45,
                 "tempo": 40,
-                "avaliacao": []
+                "avaliacao": [
+                    5,
+                    5,
+                    5
+                ]
             },
             {
                 "nome": "Barba Simples",
                 "valor": 20,
                 "tempo": 20,
-                "avaliacao": []
+                "avaliacao": [
+                    3,
+                    4,
+                    5
+                ]
             },
             {
                 "nome": "Corte na Tesoura",
                 "valor": 55,
                 "tempo": 50,
-                "avaliacao": []
-            },
-            {
-                "nome": "teste",
-                "valor": 10.0,
-                "tempo": 10
+                "avaliacao": [
+                    2,
+                    2,
+                    2
+                ]
             }
         ],
         "agendamentos": [
             {
-                "cliente": "clienteteste",
+                "nome": "clienteteste",
                 "cpf": "11111111111",
                 "servico": "Corte Social",
                 "valor": 45,

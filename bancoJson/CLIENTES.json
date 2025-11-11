@@ -6,11 +6,11 @@
         "tipo_usuario": "cliente",
         "agendamentos": [
             {
-                "barbeiro": "barbeiroteste",
+                "nome": "barbeiroteste",
                 "cpf": "00000000000",
-                "servico": "Corte Social",
                 "valor": 45,
-                "data": "08/11"
+                "data": "08/11",
+                "servico": "Corte Social"
             }
         ],
         "historico": [
