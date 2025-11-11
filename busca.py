@@ -78,3 +78,5 @@ def fluxo_buscar_servicos():
             input()
             break
 #%%
+
+fluxo_buscar_servicos()

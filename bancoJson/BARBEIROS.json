@@ -4,13 +4,13 @@
         "senha": "senhateste",
         "email": "barbeiro@gmail.com",
         "tipo_usuario": "barbeiro",
-        "endereco": "Rua Arlindo, Bairro Dali, N\u00famero 29",
-        "sobre": "Eu tenho talento!, se nao gostar do corte eu vou te devolver o seu dinheiro!",
+        "endereco": "Rua Santa Eunapolis De Janeiro, 20",
+        "sobre": "Eu tento",
         "servicos": [
             {
                 "nome": "Corte Social",
                 "valor": 45,
-                "tempo": 40, 
+                "tempo": 40,
                 "avaliacao": []
             },
             {
@@ -24,6 +24,11 @@
                 "valor": 55,
                 "tempo": 50,
                 "avaliacao": []
+            },
+            {
+                "nome": "teste",
+                "valor": 10.0,
+                "tempo": 10
             }
         ],
         "agendamentos": [

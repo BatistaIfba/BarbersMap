@@ -9,27 +9,27 @@ def cadastrar_usuario(nome, email, cpf, senha, tipo_usuario):
     email = email.lower()
     if cpf in CLIENTES or cpf in BARBEIROS: 
         print("Usuário já cadastrado!")
-        time.sleep(2)
+        time.sleep(2.5)
         return False
     if len(senha) < 8:
         print("Senha muito curta! Use pelo menos 8 caracteres!")
-        time.sleep(2)
+        time.sleep(2.5)
         return False
     if not len(cpf) == 11:
         print("Número de cpf inválido!")
-        time.sleep(2)
+        time.sleep(2.5)
         return False
     if tipo_usuario == "cliente":
         CLIENTES[cpf] = {"nome": nome.strip(), "senha": senha, "email": email, "tipo_usuario": tipo_usuario}
         print("Cadastro realizado com sucesso!")
         salvar_cliente()
-        time.sleep(2)
+        time.sleep(2.5)
         return fluxo_cliente(cpf)
     elif tipo_usuario == "barbeiro": 
         BARBEIROS[cpf] = {"nome": nome.strip(), "senha": senha, "email": email, "tipo_usuario": tipo_usuario, "endereco": input("Informe o endereço do seu local de trabalho: ") , "sobre": input("Escreva um breve resumo sobre você: ")}
         print("Cadastro realizado com sucesso!")
         salvar_barbeiro()
-        time.sleep(2)
+        time.sleep(2.5)
         return fluxo_barbeiro(cpf)
 
 def login(cpf, email, senha):
