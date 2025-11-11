@@ -25,3 +25,16 @@ def salvar_admin():
     with open("bancoJson/ADMINISTRADORES.json", "w") as f:
         json.dump(ADMINISTRADORES, f, indent=4)
 
+def carregar_barbeiro():
+    global BARBEIROS
+    try:
+        with open("bancoJson/BARBEIROS.json", "r", encoding="utf-8") as f:
+            BARBEIROS = json.load(f)
+    except FileNotFoundError:
+        print("Arquivo BARBEIROS.json não encontrado!")
+        BARBEIROS = {}
+    except json.JSONDecodeError:
+        print("Erro ao ler o JSON. Verifique a formatação.")
+        BARBEIROS = {}
+
+    return BARBEIROS

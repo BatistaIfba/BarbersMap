@@ -1,17 +1,17 @@
 from menu import menu_barbeiro, menu_sac
-
+from funçoesbarbeiro import info_profissional, gerenciar_servicos, listar_agendamentos, visualizar_historico
 def fluxo_barbeiro(cpf):
     opc = 0
     while opc != 7:
         opc = menu_barbeiro()
         if opc == 1:
-            print("Trabalho em andamento")
+            info_profissional()
         elif opc == 2:
-            print("Trabalho em andamento")
+            gerenciar_servicos()
         elif opc == 3:
-            print("Trabalho em andamento")
+            listar_agendamentos()
         elif opc == 4:
-            print("Trabalho em andamento")
+            visualizar_historico()
         elif opc == 5:
             print("Trabalho em andamento")
         elif opc == 6:
