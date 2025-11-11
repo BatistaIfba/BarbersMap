@@ -68,11 +68,12 @@ def gerenciar_servicos(cpf):
         for i, s in enumerate(servicos, start=1):
             print(f"{i}. {s['nome']} - R${s['valor']:.2f} | Tempo: {s['tempo']} min")
 
-    print("\n1 - Adiconar serviços")
-    print("2 - Editar serviços")
-    print("3 - Voltar")
+    print("\n1 - Adiconar serviço")
+    print("2 - Editar serviço")
+    print("3 - Apagar serviço")
+    print("4 - Voltar")
     opc = int(input("Digite uma opção: "))
-    while opc != 3: 
+    while opc != 4: 
         if opc == 1:
             nome = input("Nome do serviço: ")
             valor = float(input("Valor (R$): "))
@@ -86,6 +87,9 @@ def gerenciar_servicos(cpf):
             print("Trabalho em andamento")
             #CRIAR CASO DE USO EDITAR INFORMAÇAO DE SERVIÇOS
             break
+        elif opc == 3:
+            print("Trabalho em andamento!!!")
+            #CRIAR CASO DE USO APAGAR SERVIÇO
         else:
             print("OPÇÂO INVÁLIDA!")
             opc = int(input("Digite uma opção: "))
