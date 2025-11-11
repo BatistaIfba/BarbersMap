@@ -1,4 +1,4 @@
-from banco import carregar_barbeiro
+from banco import carregar_barbeiro, salvar_barbeiro
 
 CPF_BARBEIRO = "00000000000"
 barbeiros = carregar_barbeiro()
@@ -28,14 +28,25 @@ def gerenciar_servicos():
     if not barbeiro:
         print("Barbeiro não encontrado!")
         return
+
     servicos = barbeiro.get("servicos", [])
     if not servicos:
         print("\nNenhum serviço cadastrado ainda.")
-        return
+    else:
+        print("\n--- SERVIÇOS CADASTRADOS ---")
+        for i, s in enumerate(servicos, start=1):
+            print(f"{i}. {s['nome']} - R${s['valor']:.2f} | Tempo: {s['tempo']} min")
 
-    print("\n--- SERVIÇOS CADASTRADOS ---")
-    for i, s in enumerate(servicos, start=1):
-        print(f"{i}. {s['nome']} - R${s['valor']:.2f} | Tempo: {s['tempo']} min")
+    opc = input("\nDeseja adicionar um novo serviço [s/n]? ").lower()
+    if opc == "s":
+        nome = input("Nome do serviço: ")
+        valor = float(input("Valor (R$): "))
+        tempo = int(input("Tempo estimado (min): "))
+
+        novo_servico = {"nome": nome, "valor": valor, "tempo": tempo}
+        barbeiro.setdefault("servicos", []).append(novo_servico)
+        salvar_barbeiro()
+        print(f"Serviço '{nome}' adicionado com sucesso!")
 
 
 def listar_agendamentos():
@@ -49,11 +60,10 @@ def listar_agendamentos():
     agendamentos = barbeiro.get("agendamentos", [])
     if not agendamentos:
         print("\nNenhum agendamento ativo.")
-        return
-    print("\n--- AGENDAMENTOS ---")
-    cpf = CPF_BARBEIRO
-    for agendamento in barbeiros[cpf]["agendamentos"]:
-        print(f"Cliente: {agendamento['cliente']} || CPF: {agendamento['cpf']} |Serviço: {agendamento['servico']} | Data: {agendamento['data']}")
+    else:
+        print("\n--- AGENDAMENTOS ---")
+        for a in agendamentos:
+            print(f"Cliente: {a['cliente']} | CPF: {a['cpf']} | Serviço: {a['servico']} | Data: {a['data']}")
 
 
 def visualizar_historico():
@@ -67,9 +77,7 @@ def visualizar_historico():
     historico = barbeiro.get("historico", [])
     if not historico:
         print("\nNenhum serviço realizado ainda.")
-        return
-
-    print("\n--- HISTÓRICO DE SERVIÇOS ---")
-    for h in historico:
-        print(f"Cliente: {h['cliente']} | Serviço: {h['servico']} | "
-              f"Valor: R${h['valor']:.2f} | Data: {h['data']}")
+    else:
+        print("\n--- HISTÓRICO DE SERVIÇOS ---")
+        for h in historico:
+            print(f"Cliente: {h['cliente']} | Serviço: {h['servico']} | Valor: R${h['valor']:.2f} | Data: {h['data']}")
