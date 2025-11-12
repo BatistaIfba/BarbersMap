@@ -10,7 +10,7 @@ def fluxo_administrador(cpf):
         opc = Menu_administrador()
 
         if opc == 1:
-            print("Trabalho em andamento")
+            return fluxo_gerar_relatorios(cpf)
         elif opc == 2:
             return fluxo_gerenciar_usuarios(cpf)
         elif opc == 3:
@@ -19,6 +19,7 @@ def fluxo_administrador(cpf):
             print("Até logo!")
         else:
             print("opção inválida!")
+            return fluxo_administrador(cpf)
 
 def listar_usuarios():
    print("\n=== Lista de Usuários ===")
@@ -94,14 +95,6 @@ def editar_usuario(cpf):
                 BARBEIROS[cpf]['senha'] = novo_dado
                 #salvar_barbeiro()
                 print('senha atualizada com sucesso!')
-    else:
-        print('não é possível editar esse usuario!"')
-        return
-
-
-            
-
-     
 
 def fluxo_gerenciar_usuarios(cpf):
     os.system('cls')
@@ -126,13 +119,11 @@ def fluxo_gerenciar_usuarios(cpf):
         print(f"Senha: {BARBEIROS[cpf]['senha']}")
         print(f"histórico {BARBEIROS[cpf]['historico']}")
     elif cpf in ADMINISTRADORES:
-        os.system('cls')
         print('Não é possivel gerenciar esse usuário!')
         time.sleep(3)
-        return fluxo_administrador
+        return fluxo_administrador(cpf)
     else:
         print("CPF não encontrado")
-        time.sleep(2)
         return fluxo_administrador(cpf)
     
     print("\n1 - editar usuário")
@@ -154,8 +145,72 @@ def fluxo_gerenciar_usuarios(cpf):
            return fluxo_administrador(cpf)
         elif opc == 3:
            return fluxo_administrador(cpf)
-        else:
-            print('Opção inválida')
     except ValueError:
-        print("Por favor, digite um número válido")
+        print("opção inválida")
+        return fluxo_administrador(cpf)
+
+def servico_popular(cpf):
+    barbeiro = BARBEIROS[cpf]
+    historico = barbeiro.get("historico", [])
+
+    if not historico:
+        print("Nenhum serviço realizado.")
+        return
+
+    contagem_servicos = {}
+    for atendimento in historico:
+        servico = atendimento["servico"]
+        contagem_servicos[servico] = contagem_servicos.get(servico, 0) + 1
+
+    servico_popular = max(contagem_servicos, key=contagem_servicos.get)
+    quantidade = contagem_servicos[servico_popular]
+
+    print(f"O serviço mais popular de {barbeiro['nome']} é '{servico_popular}' ({quantidade} atendimentos).")
+    return servico_popular
+
+
+def fluxo_gerar_relatorios(cpf):
+    os.system('cls')
+    print("=============================")
+    print("      gerenciar usuários     ")
+    print("=============================")
+
+    listar_usuarios()
+    opc = 0
+    cpf = input('\nInforme o cpf do usuario que deseja gerenciar: ').strip()
+    
+    if cpf in CLIENTES:
+        print('Não é possivel gerar relatórios deste usuário')
+        time.sleep(3)
+        return fluxo_administrador(cpf)
+    elif cpf in BARBEIROS:
+        print('====relatório de desempenho do barbeiro====')
+        print("\nDados do usuário Barbeiro:")
+        print(f"Nome: {BARBEIROS[cpf]['nome']}")
+        print(f"Email: {BARBEIROS[cpf]['email']}")
+        print(f"Senha: {BARBEIROS[cpf]['senha']}")
+        print(f"histórico {BARBEIROS[cpf]['historico']}")
+        servico_popular(cpf)
         
+        try:
+            opc = int(input('\nDigite 1 para voltar ao menu anterior: '))
+            if opc == 1:
+                return fluxo_administrador(cpf)
+        except ValueError:
+                print("Opção inválida!")
+                time.sleep(2)
+                return fluxo_administrador(cpf)
+            
+        
+    elif cpf in ADMINISTRADORES:
+        print('Não é possivel gerar relatórios deste usuário')
+        time.sleep(3)
+        return fluxo_administrador(cpf)
+    else:
+        print("CPF não encontrado")
+        time.sleep(2)
+        return fluxo_administrador(cpf)
+
+
+
+
