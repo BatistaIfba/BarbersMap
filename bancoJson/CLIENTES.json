@@ -6,7 +6,7 @@
         "tipo_usuario": "cliente",
         "agendamentos": [
             {
-                "nome": "barbeiroteste",
+                "barbeiro": "barbeiroteste",
                 "cpf": "00000000000",
                 "valor": 45,
                 "data": "08/11",

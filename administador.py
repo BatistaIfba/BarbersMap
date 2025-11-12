@@ -172,7 +172,7 @@ def servico_popular(cpf):
 def fluxo_gerar_relatorios(cpf):
     os.system('cls')
     print("=============================")
-    print("      gerenciar usuários     ")
+    print("          Relatórios         ")
     print("=============================")
 
     listar_usuarios()
@@ -180,7 +180,7 @@ def fluxo_gerar_relatorios(cpf):
     cpf = input('\nInforme o cpf do usuario que deseja gerenciar: ').strip()
     
     if cpf in CLIENTES:
-        print('Não é possivel gerar relatórios deste usuário')
+        print('Não é possivel gerar relatórios de usuário que não oferta serviços.')
         time.sleep(3)
         return fluxo_administrador(cpf)
     elif cpf in BARBEIROS:
@@ -203,7 +203,7 @@ def fluxo_gerar_relatorios(cpf):
             
         
     elif cpf in ADMINISTRADORES:
-        print('Não é possivel gerar relatórios deste usuário')
+        print('Não é possivel gerar relatórios de um usuário que não oferta serviços.')
         time.sleep(3)
         return fluxo_administrador(cpf)
     else:

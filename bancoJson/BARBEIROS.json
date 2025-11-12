@@ -40,7 +40,7 @@
         ],
         "agendamentos": [
             {
-                "nome": "clienteteste",
+                "cliente": "clienteteste",
                 "cpf": "11111111111",
                 "servico": "Corte Social",
                 "valor": 45,

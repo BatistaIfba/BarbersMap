@@ -54,7 +54,7 @@ def menu_info_cliente(cpf):
     print("|    Informações Pessoais   |")
     print("=============================")   
     print(f"Nome: {CLIENTES[cpf]["nome"]}")
-    print(f"CPF: {cpf}")
+    print(f"CPF: {cpf[:3]}.{cpf[3:6]}.{cpf[6:9]}-{cpf[9:11]}")
     print(f"Email: {CLIENTES[cpf]["email"]}")
     print(f"Senha: {CLIENTES[cpf]["senha"]}")
     print("=============================")
