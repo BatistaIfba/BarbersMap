@@ -16,11 +16,13 @@ def fluxo_barbeiro(cpf):
         elif opc == 4:
             visualizar_historico(cpf)
         elif opc == 5:
-            print("Trabalho em andamento")
+            central_receita(cpf)
         elif opc == 6:
             menu_sac()
         elif opc == 7:
             print("Até logo!")
+            time.sleep(2)
+            os.system("cls")
         else:
             print("opção inválida!")
 
@@ -177,3 +179,24 @@ def visualizar_historico(cpf):
     while opc != 1:
         print("OPÇÂO INVÁLIDA!")
         opc = int(input("Digite uma opção: "))
+
+def central_receita(cpf):
+    os.system("cls")
+    print("=============================")
+    print("|        Barber´sMap        |")
+    print("|     Central de Receita    |")
+    print("=============================")
+    print(f"Total de agendamentos concluidos: {len(BARBEIROS[cpf]["historico"])}")
+    print(f"Total de agendamentos pendentes: {len(BARBEIROS[cpf]["agendamentos"])}")
+    soma = 0
+    for i in range(len(BARBEIROS[cpf]["historico"])):
+        if len(BARBEIROS[cpf]["historico"]) == 0:
+            break
+        soma += BARBEIROS[cpf]["historico"][i]["valor"]
+    print(f"Receita total: R${soma}")
+    print(f"Valor médio por serviço: R${soma/len(BARBEIROS[cpf]["historico"])}")
+    print("\n1 - Voltar")
+    opc = int(input("Digite uma opção: "))
+    while opc != 1:
+        print("OPÇÂO INVÁLIDA!")
+        opc = int(input("Digite uma opção: "))    

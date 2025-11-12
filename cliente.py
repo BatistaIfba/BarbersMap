@@ -19,6 +19,8 @@ def fluxo_cliente(cpf):
             menu_sac()
         elif opc == 6:
             print("Até logo!")
+            time.sleep(2)
+            os.system("cls")
         else:
             print("Opção inválida!")
 
