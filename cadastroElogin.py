@@ -26,7 +26,7 @@ def cadastrar_usuario(nome, email, cpf, senha, tipo_usuario):
         time.sleep(2.5)
         return fluxo_cliente(cpf)
     elif tipo_usuario == "barbeiro": 
-        BARBEIROS[cpf] = {"nome": nome.strip(), "senha": senha, "email": email, "tipo_usuario": tipo_usuario, "endereco": input("Informe o endereço do seu local de trabalho: ") , "sobre": input("Escreva um breve resumo sobre você: ")}
+        BARBEIROS[cpf] = {"nome": nome.strip(), "senha": senha, "email": email, "tipo_usuario": tipo_usuario, "endereco": input("Informe o endereço do seu local de trabalho: ") , "sobre": input("Escreva um breve resumo sobre você: "), "servicos": [], "agendamentos": [], "historico": []}
         print("Cadastro realizado com sucesso!")
         salvar_barbeiro()
         time.sleep(2.5)

@@ -31,7 +31,10 @@ def info_profissional(cpf):
     medias = 0
     for i in range(len(BARBEIROS[cpf]["servicos"])):
         medias += sum(BARBEIROS[cpf]["servicos"][i]["avaliacao"])/len(BARBEIROS[cpf]["servicos"][i]["avaliacao"])
-    media = medias/len(BARBEIROS[cpf]["servicos"])
+    if len(BARBEIROS[cpf]["servicos"]) == 0:
+        media = 0
+    else:
+        media = medias/len(BARBEIROS[cpf]["servicos"])
     print("=============================")
     print("|        Barber´sMap        |")
     print("| Informações Profissionais |")
@@ -194,7 +197,10 @@ def central_receita(cpf):
             break
         soma += BARBEIROS[cpf]["historico"][i]["valor"]
     print(f"Receita total: R${soma}")
-    print(f"Valor médio por serviço: R${soma/len(BARBEIROS[cpf]["historico"])}")
+    media = 0
+    if len(BARBEIROS[cpf]["historico"]) != 0:
+        media = soma/len(BARBEIROS[cpf]["historico"])
+    print(f"Valor médio por serviço: R${media}")
     print("\n1 - Voltar")
     opc = int(input("Digite uma opção: "))
     while opc != 1:
