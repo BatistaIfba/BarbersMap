@@ -14,7 +14,10 @@
                 "avaliacao": [
                     5,
                     5,
-                    5
+                    5,
+                    4.0,
+                    4.0,
+                    4.0
                 ]
             },
             {
@@ -38,15 +41,7 @@
                 ]
             }
         ],
-        "agendamentos": [
-            {
-                "cliente": "clienteteste",
-                "cpf": "11111111111",
-                "servico": "Corte Social",
-                "valor": 45,
-                "data": "08/11"
-            }
-        ],
+        "agendamentos": [],
         "historico": [
             {
                 "cliente": "clienteteste",
@@ -54,6 +49,13 @@
                 "servico": "Corte Social",
                 "valor": 45,
                 "data": "01/11"
+            },
+            {
+                "cliente": "clienteteste",
+                "cpf": "11111111111",
+                "servico": "Corte Social",
+                "valor": 45,
+                "data": "08/11"
             }
         ]
     }

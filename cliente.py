@@ -44,8 +44,9 @@ def editar_informacoes(cpf):
                 BARBEIROS[chave]["historico"][i]["cliente"] = nome
     print("Informações alteradas com sucesso!")
     print(f"\n\n{BARBEIROS}\n\n")
-    time.sleep(10)
+    time.sleep(2)
     salvar_cliente()
+    os.system('cls') 
 
 def agendamentos_cliente(cpf):
     os.system('cls') 
@@ -59,12 +60,13 @@ def agendamentos_cliente(cpf):
         print(f"Barbeiro: {CLIENTES[cpf]["agendamentos"][i]["barbeiro"]}")
         print(f"Valor: R${CLIENTES[cpf]["agendamentos"][i]["valor"]}  -  Data: {CLIENTES[cpf]["agendamentos"][i]["data"]}\n")
     if len(CLIENTES[cpf]["agendamentos"]) == 0:
-        print("NENHUM AGENDAMENTO MARCADO!")
-        print("1 - Voltar")
+        print("Nenhum agendamento marcado!")
+        print("\n1 - Voltar")
         opc = int(input("Digite uma opção: "))
         while opc != 1:
             print("Opção inválida!")
             opc = int(input("Digite uma opção: "))
+            os.system('cls') 
     else:
         print("1 - Cancelar agendamento")
         print("2 - Concluir agendamento")
@@ -85,9 +87,11 @@ def agendamentos_cliente(cpf):
                             salvar_cliente()
                             salvar_barbeiro()
                             time.sleep(2)
+                            os.system('cls') 
                             break
                 else:
                     print("Serviço não encontrado!")
+                    os.system('cls') 
         elif opc == 2:
             servico = input("Informe o nome do serviço que deseja confirmar a realização: ")
             for i in range(len(CLIENTES[cpf]["agendamentos"])):
@@ -106,12 +110,14 @@ def agendamentos_cliente(cpf):
                                 if BARBEIROS[CLIENTES[cpf]["historico"][i]["cpf"]]["servicos"][i]["nome"] == CLIENTES[cpf]["historico"][len(CLIENTES[cpf]["historico"])-1]["servico"]:
                                     BARBEIROS[CLIENTES[cpf]["historico"][i]["cpf"]]["servicos"][i]["avaliacao"].append(nota)
                             print("Agendamento concluido! Muito obrigado!")
-                            #salvar_cliente()
-                            #salvar_barbeiro()
+                            salvar_cliente()
+                            salvar_barbeiro()
                             time.sleep(2)
+                            os.system('cls') 
                             break
                     else:
                         print("Serviço não encontrado!")
+                        os.system('cls') 
 
 def historico_cliente(cpf):
     os.system('cls') 
@@ -125,9 +131,10 @@ def historico_cliente(cpf):
         print(f"Barbeiro: {CLIENTES[cpf]["historico"][i]["barbeiro"]}")
         print(f"Valor: R${CLIENTES[cpf]["historico"][i]["valor"]}  -  Data: {CLIENTES[cpf]["historico"][i]["data"]}\n")
     if len(CLIENTES[cpf]["historico"]) == 0:
-        print("Histórico vazio!\n")
-    print("1 - Voltar")
+        print("Histórico vazio!")
+    print("\n1 - Voltar")
     opc = int(input("Digite uma opção: "))
     while opc != 1:
         print("Opção inválida!")
         opc = int(input("Digite uma opção: "))
+    os.system('cls') 

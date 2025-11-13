@@ -20,7 +20,7 @@ def cadastrar_usuario(nome, email, cpf, senha, tipo_usuario):
         time.sleep(2.5)
         return False
     if tipo_usuario == "cliente":
-        CLIENTES[cpf] = {"nome": nome.strip(), "senha": senha, "email": email, "tipo_usuario": tipo_usuario}
+        CLIENTES[cpf] = {"nome": nome.strip(), "senha": senha, "email": email, "tipo_usuario": tipo_usuario, "agendamentos": [], "historico": [], }
         print("Cadastro realizado com sucesso!")
         salvar_cliente()
         time.sleep(2.5)
