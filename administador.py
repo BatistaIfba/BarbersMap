@@ -34,12 +34,13 @@ def fluxo_administrador(chave):
         elif opc == 2:
             fluxo_gerenciar_usuarios(chave)
         elif opc == 3:
-            print("Trabalho em andamento")
+            fluxo_gerenciar_servicos(chave)
             time.sleep(2)
         elif opc == 4:
             print("Até logo!")
             time.sleep(2)
             os.system("cls")
+            return
         else:
             print("opção inválida!")
             time.sleep(2)
@@ -139,6 +140,37 @@ def fluxo_gerar_relatorios(chave):
         print("CPF ou CNPJ não encontrado")
         time.sleep(2)
         return fluxo_administrador(chave)
+
+def fluxo_gerenciar_servicos(chave):
+    os.system('cls')
+    print("=============================")
+    print("      gerenciar serviços     ")
+    print("=============================")
+    listar_servicos(chave)
+    
+    print("\n1 - editar serviço")
+    print("2 - excluir serviço")
+    print("3 - Voltar")
+
+    try:
+        opc = int(input("Escolha uma opção: "))
+
+        if opc == 1:
+            editar_servico(chave)
+            return
+        elif opc == 2:
+            deletar_servico(chave)
+            time.sleep(3)
+            return fluxo_administrador(chave)
+        elif opc == 3:
+            return fluxo_administrador(chave)
+        else:
+            print("opção inválida")
+            time.sleep(2)
+            return fluxo_administrador(chave)
+    except ValueError:
+        print("opção inválida")
+        
 
 
 def listar_usuarios():
@@ -242,9 +274,121 @@ def servico_popular(chave):
     print(f"O serviço mais popular de {barbeiro['nome']} é '{servico_popular}' ({quantidade} atendimentos).")
     return servico_popular
 
+
 def faturamento_total(chave):
-    if chave in BARBEIROS and 'valor' in BARBEIROS[chave]:
-        faturamento = sum(BARBEIROS[chave]['valor'])
-        return faturamento
-    else:
-        return 0
+    barbeiro = BARBEIROS[chave]
+    historico = barbeiro.get("historico", [])
+    faturamento_total = 0
+    
+    for item in historico:
+        if 'valor' in item:
+            try:
+                valor = float(item['valor'])
+                faturamento_total += valor
+            except (ValueError, TypeError):
+                pass
+    print(f"Faturamento total: R$ {faturamento_total:.2f}")
+    return faturamento_total
+
+def media_avaliacao_barbeiro(chave):
+    servicos = BARBEIROS[chave]["servicos"]
+    total_notas = []
+    
+    for servico in servicos:
+        total_notas.extend(servico["avaliacao"])
+
+    if not total_notas:
+        print("Esse barbeiro ainda não possui avaliações.")
+        return
+
+    media = sum(total_notas) / len(total_notas)
+    print(f"Média geral de avaliação do barbeiro: {media:.2f}")
+
+def listar_servicos(chave):
+    print('==========serviços cadastrados==========')
+    if chave not in BARBEIROS:
+        print("Barbeiro não encontrado.")
+        return
+
+    servicos = BARBEIROS[chave]["servicos"]
+
+    if not servicos:
+        print("Nenhum serviço cadastrado.")
+        return
+
+    for i, servico in enumerate(servicos, start=1):
+        print(f"{i}. {servico['nome']} - R${servico['valor']} - {servico['tempo']} min")
+
+def editar_servico(chave):
+    os.system('cls')
+    listar_servicos(chave)
+    servicos = BARBEIROS[chave]['servicos']
+
+    nome_servico = input("\nDigite o nome do serviço que deseja editar: ").lower().strip()
+
+    for servico in servicos:
+            if servico['nome'].lower() == nome_servico:
+                dado = input("O que deseja alterar (nome, valor ou tempo): ").lower().strip()
+
+                if dado == 'nome':
+                    novo_dado = input("Informe o novo nome: ").strip()
+                    servico['nome'] = novo_dado
+                    print("Nome atualizado com sucesso!")
+                    #salvar_barbeiro()
+                    return
+
+                elif dado == 'valor':
+                    novo_dado = float(input("Informe o novo valor: "))
+                    servico['valor'] = novo_dado
+                    print("Valor atualizado com sucesso!")
+                    #salvar_barbeiro()
+                    return
+
+                elif dado == 'tempo':
+                    os.system('cls')
+                    novo_dado = int(input("Informe o novo tempo (minutos): "))
+                    servico['tempo'] = novo_dado
+                    print("Tempo atualizado com sucesso!")
+                    #salvar_barbeiro()   
+                    return
+                
+                else:
+                    print("Opção inválida.")
+                    time.sleep(2)
+                    return editar_servico(chave)
+    print("Serviço não encontrado.")
+    os.system('cls')
+    time.sleep(2)
+    return editar_servico(chave)
+
+def deletar_servico(chave):
+    listar_servicos(chave)
+    servicos = BARBEIROS[chave]["servicos"]
+
+    if not servicos:
+        print("Nenhum serviço cadastrado.")
+        time.sleep(2)
+        return
+
+    nome_servico = input("\nDigite o nome do serviço que deseja deletar: ").lower().strip()
+
+    for servico in servicos:
+        if servico["nome"].lower() == nome_servico:
+            confirmacao = input(f"Tem certeza que deseja deletar o serviço '{servico['nome']}'? (s/n): ").strip().lower()
+
+            if confirmacao == 's':
+                servicos.remove(servico)
+                #salvar_barbeiro()
+                print(f"O serviço '{nome_servico}' foi excluído com sucesso.")
+            else:
+                print("\nExclusão cancelada.")
+                time.sleep(2)
+                return
+    os.system('cls')
+    print("Serviço não encontrado.")
+    time.sleep(2)
+    return deletar_servico(chave)
+    
+    
+
+
