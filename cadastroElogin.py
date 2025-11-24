@@ -16,7 +16,7 @@ def cadastrar_usuario(nome, email, chave, senha, tipo_usuario):
         input()
         return fluxo_cliente(chave)
     elif tipo_usuario == "barbeiro": 
-        BARBEIROS[chave] = {"nome": nome.strip(), "senha": senha, "email": email, "tipo_usuario": tipo_usuario, "endereco": input("Informe o endereço do seu local de trabalho: ") , "sobre": input("Escreva um breve resumo sobre você: "), "servicos": [], "agendamentos": [], "historico": []}
+        BARBEIROS[chave] = {"nome": nome.strip(), "senha": senha, "email": email, "tipo_usuario": tipo_usuario, "endereco": input("Informe o endereço do seu local de trabalho: ") , "sobre": input("Escreva um breve resumo sobre você: "), "meta": float(input("Defina um valor para ser sua meta: R$")), "servicos": [], "agendamentos": [], "historico": []}
         print("Cadastro realizado com sucesso! Pressione ENTER para continuar.")
         salvar_barbeiro()
         input()

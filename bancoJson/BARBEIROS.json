@@ -6,6 +6,7 @@
         "tipo_usuario": "barbeiro",
         "endereco": "Rua Santa Eunapolis De Janeiro, 20",
         "sobre": "Eu tento",
+        "meta": 10000,
         "servicos": [
             {
                 "nome": "Corte Social",
@@ -76,6 +77,7 @@
         "tipo_usuario": "barbeiro",
         "endereco": "Rua Santa Eunapolis De Janeiro, 20",
         "sobre": "Eu tento",
+        "meta": 5000,
         "servicos": [
             {
                 "nome": "Corte Social",
@@ -147,6 +149,7 @@
         "tipo_usuario": "barbeiro",
         "endereco": "Rua Santa Eunapolis De Janeiro, 20",
         "sobre": "Eu tento",
+        "meta": 7500,
         "servicos": [
             {
                 "nome": "Corte Social",

@@ -195,6 +195,7 @@ def central_receita(chave):
     print("=============================")
     print(f"Total de agendamentos concluidos: {len(BARBEIROS[chave]["historico"])}")
     print(f"Total de agendamentos pendentes: {len(BARBEIROS[chave]["agendamentos"])}")
+    print(f"Meta: R${BARBEIROS[chave]["meta"]}")
     soma = 0
     for i in range(len(BARBEIROS[chave]["historico"])):
         if len(BARBEIROS[chave]["historico"]) == 0:
@@ -205,8 +206,16 @@ def central_receita(chave):
     if len(BARBEIROS[chave]["historico"]) != 0:
         media = soma/len(BARBEIROS[chave]["historico"])
     print(f"Valor médio por serviço: R${media}")
-    print("\n1 - Voltar")
+    print("\n1 - Alterar Meta")
+    print("2 - Voltar")
     opc = int(input("Digite uma opção: "))
-    while opc != 1:
-        print("OPÇÂO INVÁLIDA!")
-        opc = int(input("Digite uma opção: "))    
+    while opc != 2:
+        if opc == 1:
+            nova_meta = float(input("Valor da nova meta: R$"))
+            BARBEIROS[chave]["meta"] = nova_meta
+            print("Meta Alterada! Pressione ENTER para continuar.")
+            input()
+            break
+        else:
+            print("OPÇÂO INVÁLIDA!")
+            opc = int(input("Digite uma opção: "))    
