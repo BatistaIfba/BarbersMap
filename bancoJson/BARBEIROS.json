@@ -1,7 +1,7 @@
 {
     "00000000000": {
         "nome": "barbeiroteste",
-        "senha": "senhateste",
+        "senha": "senhatestE123@",
         "email": "barbeiro@gmail.com",
         "tipo_usuario": "barbeiro",
         "endereco": "Rua Santa Eunapolis De Janeiro, 20",
@@ -44,168 +44,41 @@
                 ]
             }
         ],
-        "agendamentos": [
-            {
-                "cliente": "clienteteste",
-                "chave": "11111111111",
-                "servico": "Corte Social",
-                "valor": 45,
-                "data": "08/11"
-            }
-        ],
+        "agendamentos": [],
         "historico": [
             {
                 "cliente": "clienteteste",
                 "chave": "11111111111",
                 "servico": "Corte Social",
                 "valor": 45,
-                "data": "01/11"
+                "data": "01/11/2025"
             },
             {
                 "cliente": "clienteteste",
                 "chave": "11111111111",
                 "servico": "corte na tesoura",
                 "valor": 55,
-                "data": "27/11"
+                "data": "27/11/2025"
             }
         ]
     },
-    "00000000001": {
-        "nome": "barbeiroteste2",
-        "senha": "senhateste",
-        "email": "barbeiro@gmail.com",
+    "09291376558": {
+        "nome": "BatistaB",
+        "senha": "senhA123@",
+        "email": "BatistaB@gmail.com",
         "tipo_usuario": "barbeiro",
-        "endereco": "Rua Santa Eunapolis De Janeiro, 20",
-        "sobre": "Eu tento",
-        "meta": 5000,
+        "endereco": "pequi",
+        "sobre": "eu sou bom, confia!",
+        "meta": 1000.0,
         "servicos": [
             {
-                "nome": "Corte Social",
-                "valor": 450,
-                "tempo": 40,
-                "avaliacao": [
-                    5,
-                    5,
-                    5,
-                    4.0,
-                    4.0,
-                    4.0,
-                    4.0,
-                    5.0,
-                    4.0
-                ]
-            },
-            {
-                "nome": "Barba Simples",
-                "valor": 20,
-                "tempo": 20,
-                "avaliacao": [
-                    3,
-                    4,
-                    5
-                ]
-            },
-            {
-                "nome": "Corte na Tesoura",
-                "valor": 55,
-                "tempo": 50,
-                "avaliacao": [
-                    2,
-                    2,
-                    2
-                ]
+                "nome": "corte simples",
+                "valor": 10.0,
+                "tempo": 18,
+                "avaliacao": []
             }
         ],
-        "agendamentos": [
-            {
-                "cliente": "clienteteste",
-                "chave": "11111111111",
-                "servico": "Corte Social",
-                "valor": 45,
-                "data": "08/11"
-            }
-        ],
-        "historico": [
-            {
-                "cliente": "clienteteste",
-                "chave": "11111111111",
-                "servico": "Corte Social",
-                "valor": 45,
-                "data": "01/11"
-            },
-            {
-                "cliente": "clienteteste",
-                "chave": "11111111111",
-                "servico": "corte na tesoura",
-                "valor": 55,
-                "data": "27/11"
-            }
-        ]
-    },
-    "00000000003": {
-        "nome": "barbeiroteste3",
-        "senha": "senhateste",
-        "email": "barbeiro@gmail.com",
-        "tipo_usuario": "barbeiro",
-        "endereco": "Rua Santa Eunapolis De Janeiro, 20",
-        "sobre": "Eu tento",
-        "meta": 7500,
-        "servicos": [
-            {
-                "nome": "Corte Social",
-                "valor": 10,
-                "tempo": 40,
-                "avaliacao": [
-                    5,
-                    5,
-                    5
-                ]
-            },
-            {
-                "nome": "Barba Simples",
-                "valor": 15,
-                "tempo": 20,
-                "avaliacao": [
-                    3,
-                    4,
-                    5
-                ]
-            },
-            {
-                "nome": "Corte na Tesoura",
-                "valor": 5,
-                "tempo": 50,
-                "avaliacao": [
-                    2,
-                    2,
-                    2
-                ]
-            }
-        ],
-        "agendamentos": [
-            {
-                "cliente": "clienteteste",
-                "chave": "11111111111",
-                "servico": "Corte Social",
-                "valor": 45,
-                "data": "08/11"
-            }
-        ],
-        "historico": [
-            {
-                "cliente": "clienteteste",
-                "chave": "11111111111",
-                "servico": "Corte Social",
-                "valor": 45,
-                "data": "01/11"
-            },
-            {
-                "cliente": "clienteteste",
-                "chave": "11111111111",
-                "servico": "corte na tesoura",
-                "valor": 55,
-                "data": "27/11"
-            }
-        ]
+        "agendamentos": [],
+        "historico": []
     }
 }

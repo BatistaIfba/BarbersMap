@@ -149,12 +149,12 @@ def listar_agendamentos(chave):
     opc = int(input("Digite uma opção: "))
     while opc != 2:
         if opc == 1:
-            nome = input("Informe o nome do cliente que deseja cancelar o agendamento: ").lower()
+            nome = input("Informe o nome do cliente que deseja cancelar o agendamento: ")
             for i in range(len(BARBEIROS[chave]["agendamentos"])):
-                if nome == BARBEIROS[chave]["agendamentos"][i]["cliente"].lower():
+                if nome == BARBEIROS[chave]["agendamentos"][i]["cliente"]:
                     for I in range(len(CLIENTES[BARBEIROS[chave]["agendamentos"][i]["chave"]]["agendamentos"])):
-                        if chave == CLIENTES[BARBEIROS[chave]["agendamentos"][i]["chave"]]["agendamentos"][i]["chave"]:
-                            del CLIENTES[BARBEIROS[chave]["agendamentos"][i]["chave"]]["agendamentos"][i]
+                        if chave == CLIENTES[BARBEIROS[chave]["agendamentos"][i]["chave"]]["agendamentos"][I]["chave"]:
+                            del CLIENTES[BARBEIROS[chave]["agendamentos"][i]["chave"]]["agendamentos"][I]
                             del BARBEIROS[chave]["agendamentos"][i]
                             print("Agendamento cancelado! Pressione ENTER para continuar.")
                             salvar_barbeiro()
@@ -195,17 +195,17 @@ def central_receita(chave):
     print("=============================")
     print(f"Total de agendamentos concluidos: {len(BARBEIROS[chave]["historico"])}")
     print(f"Total de agendamentos pendentes: {len(BARBEIROS[chave]["agendamentos"])}")
-    print(f"Meta: R${BARBEIROS[chave]["meta"]}")
+    print(f"Meta: R${BARBEIROS[chave]["meta"]:.2f}")
     soma = 0
     for i in range(len(BARBEIROS[chave]["historico"])):
         if len(BARBEIROS[chave]["historico"]) == 0:
             break
         soma += BARBEIROS[chave]["historico"][i]["valor"]
-    print(f"Receita total: R${soma}")
+    print(f"Receita total: R${soma:.2f}")
     media = 0
     if len(BARBEIROS[chave]["historico"]) != 0:
         media = soma/len(BARBEIROS[chave]["historico"])
-    print(f"Valor médio por serviço: R${media}")
+    print(f"Valor médio por serviço: R${media:.2f}")
     print("\n1 - Alterar Meta")
     print("2 - Voltar")
     opc = int(input("Digite uma opção: "))

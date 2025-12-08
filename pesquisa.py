@@ -14,7 +14,10 @@ def painel_busca(chave):
         media = 0
         preco_medio = 0
         for i in range(len(BARBEIROS[barbeiro]["servicos"])):
-            media += sum(BARBEIROS[barbeiro]["servicos"][i]["avaliacao"])/len(BARBEIROS[barbeiro]["servicos"][i]["avaliacao"])
+            if len(BARBEIROS[barbeiro]["servicos"][i]["avaliacao"]) == 0:
+                media = 0
+            else:
+                media += sum(BARBEIROS[barbeiro]["servicos"][i]["avaliacao"])/len(BARBEIROS[barbeiro]["servicos"][i]["avaliacao"])
             preco_medio += BARBEIROS[barbeiro]["servicos"][i]["valor"]
         if len(BARBEIROS[barbeiro]["servicos"]) == 0:
             media = 0
@@ -54,7 +57,10 @@ def painel_busca(chave):
         for barbeiro in BARBEIROS:
             media = 0
             for c in range(len(BARBEIROS[barbeiro]["servicos"])):
-                media += sum(BARBEIROS[barbeiro]["servicos"][c]["avaliacao"])/len(BARBEIROS[barbeiro]["servicos"][c]["avaliacao"])
+                if len(BARBEIROS[barbeiro]["servicos"][c]["avaliacao"]) == 0:
+                    break
+                else:
+                    media += sum(BARBEIROS[barbeiro]["servicos"][c]["avaliacao"])/len(BARBEIROS[barbeiro]["servicos"][c]["avaliacao"])
             if len(BARBEIROS[barbeiro]["servicos"]) == 0:
                 media = 0
             else:
@@ -73,6 +79,7 @@ def painel_busca(chave):
                         break
                     else:
                         busca(barbeiro, chave)
+                        cont = True
                         break
                 else:
                     cont = False
@@ -91,8 +98,11 @@ def painel_busca(chave):
                 media = 0
                 preco_medio = 0
                 for I in range(len(BARBEIROS[filtrar_nota[i]]["servicos"])):
-                    media += sum(BARBEIROS[filtrar_nota[i]]["servicos"][I]["avaliacao"])/len(BARBEIROS[filtrar_nota[i]]["servicos"][I]["avaliacao"])
-                    preco_medio += BARBEIROS[filtrar_nota[i]]["servicos"][I]["valor"]
+                    if len(BARBEIROS[filtrar_nota[i]]["servicos"][I]["avaliacao"]) == 0:
+                        break
+                    else:
+                        media += sum(BARBEIROS[filtrar_nota[i]]["servicos"][I]["avaliacao"])/len(BARBEIROS[filtrar_nota[i]]["servicos"][I]["avaliacao"])
+                        preco_medio += BARBEIROS[filtrar_nota[i]]["servicos"][I]["valor"]
                 if len(BARBEIROS[filtrar_nota[i]]["servicos"]) == 0:
                     media = 0
                     preco_medio = 0
@@ -109,7 +119,6 @@ def painel_busca(chave):
             print("2 - Filtrar Resultados por Preço")
             print("3 - Sair")
             opc = input("Digite uma opção: ")
-            os.system("cls")
             if opc == "2":
                 opc = "FILTRAR PREÇO"
         elif opc == "FILTRAR PREÇO":
@@ -123,8 +132,11 @@ def painel_busca(chave):
                 media = 0
                 preco_medio = 0
                 for I in range(len(BARBEIROS[filtrar_preco[i]]["servicos"])):
-                    media += sum(BARBEIROS[filtrar_preco[i]]["servicos"][I]["avaliacao"])/len(BARBEIROS[filtrar_preco[i]]["servicos"][I]["avaliacao"])
-                    preco_medio += BARBEIROS[filtrar_preco[i]]["servicos"][I]["valor"]
+                    if len(BARBEIROS[filtrar_preco[i]]["servicos"][I]["avaliacao"]) == 0:
+                        break
+                    else:
+                        media += sum(BARBEIROS[filtrar_preco[i]]["servicos"][I]["avaliacao"])/len(BARBEIROS[filtrar_preco[i]]["servicos"][I]["avaliacao"])
+                        preco_medio += BARBEIROS[filtrar_preco[i]]["servicos"][I]["valor"]
                 if len(BARBEIROS[filtrar_preco[i]]["servicos"]) == 0:
                     media = 0
                     preco_medio = 0
@@ -152,7 +164,10 @@ def busca(barbeiro, chave):
     os.system('cls') 
     media = 0
     for i in range(len(BARBEIROS[barbeiro]["servicos"])):
-        media += sum(BARBEIROS[barbeiro]["servicos"][i]["avaliacao"])/len(BARBEIROS[barbeiro]["servicos"][i]["avaliacao"])
+        if len(BARBEIROS[barbeiro]["servicos"][i]["avaliacao"]) == 0:
+            break
+        else:
+            media += sum(BARBEIROS[barbeiro]["servicos"][i]["avaliacao"])/len(BARBEIROS[barbeiro]["servicos"][i]["avaliacao"])
     if len(BARBEIROS[barbeiro]["servicos"]) == 0:
         media = 0
     else:
@@ -171,6 +186,7 @@ def busca(barbeiro, chave):
     opc = input("Digite uma opção: ")
     while opc != "2":
         if opc == "1":
+            os.system("cls")
             print("=============================")
             print("|        Barber´sMap        |")
             print("|    Serviços Disponiveis   |")
@@ -191,7 +207,7 @@ def busca(barbeiro, chave):
                     for i in range(len(BARBEIROS[barbeiro]["servicos"])):
                         if escolha == BARBEIROS[barbeiro]["servicos"][i]["nome"].lower().strip():
                             cont = True
-                            data = input("Informe a data (dd\mm): ")
+                            data = input("Informe a data (dd/mm/yyyy): ")
                             BARBEIROS[barbeiro]["agendamentos"].append({
                                 "cliente": CLIENTES[chave]["nome"],
                                 "chave": chave,

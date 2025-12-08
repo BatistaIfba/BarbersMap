@@ -1,41 +1,25 @@
 {
     "11111111111": {
         "nome": "clienteteste",
-        "senha": "senhateste",
+        "senha": "senhatestE123@",
         "email": "teste@gmail.com",
         "tipo_usuario": "cliente",
-        "agendamentos": [
-            {
-                "barbeiro": "barbeiroteste",
-                "chave": "00000000000",
-                "valor": 45,
-                "data": "08/11",
-                "servico": "Corte Social"
-            }
-        ],
+        "agendamentos": [],
         "historico": [
             {
                 "barbeiro": "barbeiroteste",
                 "chave": "00000000000",
                 "servico": "Corte Social",
                 "valor": 45,
-                "data": "01/11"
+                "data": "01/11/2025"
             },
             {
                 "barbeiro": "barbeiroteste",
                 "chave": "00000000000",
                 "valor": 55,
-                "data": "27/11",
+                "data": "27/11/2025",
                 "servico": "corte na tesoura"
             }
         ]
-    },
-    "09291376558": {
-        "nome": "Batista",
-        "senha": "senhatestE123@",
-        "email": "Batista@hotmail.com",
-        "tipo_usuario": "cliente",
-        "agendamentos": [],
-        "historico": []
     }
 }
