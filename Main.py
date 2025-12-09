@@ -8,17 +8,17 @@ def main():
     chave = False
     os.system('cls') 
     opc = 0
-    while opc != 5:
+    while opc != "5":
         opc = menu()
-        if opc == 1:
+        if opc == "1":
             painel_busca(chave)
-        elif opc == 2:
+        elif opc == "2":
             fluxo_login()
-        elif opc == 3:
+        elif opc == "3":
             fluxo_cadastrar()
-        elif opc == 4: 
+        elif opc == "4": 
             menu_sac()
-        elif opc == 5:
+        elif opc == "5":
             print("Adeus!")
         else:
             print("Opção inválida!")

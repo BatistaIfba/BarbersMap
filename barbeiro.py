@@ -213,6 +213,7 @@ def central_receita(chave):
         if opc == 1:
             nova_meta = float(input("Valor da nova meta: R$"))
             BARBEIROS[chave]["meta"] = nova_meta
+            salvar_barbeiro()
             print("Meta Alterada! Pressione ENTER para continuar.")
             input()
             break

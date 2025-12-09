@@ -13,7 +13,7 @@ def menu():
     print("3 - Cadastrar-se")
     print("4 - Atendimento ao consumidor")
     print("5 - Sair")
-    opc = int(input("Digite uma opção: "))
+    opc = input("Digite uma opção: ")
     return opc
 
 def menu_barbeiro():

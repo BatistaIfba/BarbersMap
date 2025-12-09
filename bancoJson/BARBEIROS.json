@@ -6,7 +6,7 @@
         "tipo_usuario": "barbeiro",
         "endereco": "Rua Santa Eunapolis De Janeiro, 20",
         "sobre": "Eu tento",
-        "meta": 10000,
+        "meta": 3000.0,
         "servicos": [
             {
                 "nome": "Corte Social",
@@ -34,9 +34,9 @@
                 ]
             },
             {
-                "nome": "Corte na Tesoura",
-                "valor": 55,
-                "tempo": 50,
+                "nome": "Corte na Tesoura Simples",
+                "valor": 45.0,
+                "tempo": 40,
                 "avaliacao": [
                     2,
                     2,
