@@ -30,7 +30,8 @@ def info_profissional(chave):
     os.system('cls') 
     media = 0
     for i in range(len(BARBEIROS[chave]["servicos"])):
-        media += sum(BARBEIROS[chave]["servicos"][i]["avaliacao"])/len(BARBEIROS[chave]["servicos"][i]["avaliacao"])
+        if len(BARBEIROS[chave]["servicos"][i]["avaliacao"]) > 0:
+            media += sum(BARBEIROS[chave]["servicos"][i]["avaliacao"])/len(BARBEIROS[chave]["servicos"][i]["avaliacao"])
     if len(BARBEIROS[chave]["servicos"]) == 0:
         media = 0
     else:
@@ -97,6 +98,8 @@ def gerenciar_servicos(chave):
             break
         elif opc == 2:
             nome_servico = input("Digite o nome do serviço que deseja editar: ").lower()
+            if nome_servico == "":
+                break
             for i in range(len(BARBEIROS[chave]["servicos"])):
                 if nome_servico == BARBEIROS[chave]["servicos"][i]["nome"].lower():
                     nome = input("Informe o novo nome do serviço: ")
@@ -116,6 +119,8 @@ def gerenciar_servicos(chave):
             break
         elif opc == 3:
             nome = input("Digite o nome do serviço que deseja parar de ofertar: ").lower()
+            if nome == "":
+                break
             for i in range(len(BARBEIROS[chave]["servicos"])):
                 if nome == BARBEIROS[chave]["servicos"][i]["nome"].lower():
                     del BARBEIROS[chave]["servicos"][i]

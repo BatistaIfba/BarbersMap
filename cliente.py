@@ -125,8 +125,8 @@ def agendamentos_cliente(chave):
                                 print("A nota tem que ser entre 0 e 5!")
                                 nota = float(input("De uma nota para o serviço [0 a 5]: "))
                             for P in range(len(BARBEIROS[CLIENTES[chave]["historico"][i]["chave"]]["servicos"])):
-                                if BARBEIROS[CLIENTES[chave]["historico"][i]["chave"]]["servicos"][i]["nome"] == CLIENTES[chave]["historico"][len(CLIENTES[chave]["historico"])-1]["servico"]:
-                                    BARBEIROS[CLIENTES[chave]["historico"][i]["chave"]]["servicos"][i]["avaliacao"].append(nota)
+                                if BARBEIROS[CLIENTES[chave]["historico"][i]["chave"]]["servicos"][P]["nome"].lower().strip() == CLIENTES[chave]["historico"][len(CLIENTES[chave]["historico"])-1]["servico"]:
+                                    BARBEIROS[CLIENTES[chave]["historico"][i]["chave"]]["servicos"][P]["avaliacao"].append(nota)
                             print("Agendamento concluido! Muito obrigado! Pressione ENTER para continuar!")
                             salvar_cliente()
                             salvar_barbeiro()
