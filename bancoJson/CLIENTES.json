@@ -21,5 +21,13 @@
                 "servico": "corte na tesoura"
             }
         ]
+    },
+    "12345678920": {
+        "nome": "lucas",
+        "senha": "Caralho123.",
+        "email": "lucas@gmail.com",
+        "tipo_usuario": "cliente",
+        "agendamentos": [],
+        "historico": []
     }
 }
