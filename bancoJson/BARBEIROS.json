@@ -5,7 +5,7 @@
         "email": "barbeiro@gmail.com",
         "tipo_usuario": "barbeiro",
         "endereco": "Rua Santa Eunapolis De Janeiro, 20",
-        "sobre": "Eu tento",
+        "sobre": "Corto cabelo tem muitos anos!, vou te fazer feliz...",
         "meta": 3000.0,
         "servicos": [
             {
@@ -61,24 +61,5 @@
                 "data": "27/11/2025"
             }
         ]
-    },
-    "09291376558": {
-        "nome": "BatistaB",
-        "senha": "senhA123@",
-        "email": "BatistaB@gmail.com",
-        "tipo_usuario": "barbeiro",
-        "endereco": "pequi",
-        "sobre": "eu sou bom, confia!",
-        "meta": 1000.0,
-        "servicos": [
-            {
-                "nome": "corte simples",
-                "valor": 10.0,
-                "tempo": 18,
-                "avaliacao": []
-            }
-        ],
-        "agendamentos": [],
-        "historico": []
     }
 }

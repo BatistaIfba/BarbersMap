@@ -99,6 +99,7 @@ def painel_busca(chave):
                 preco_medio = 0
                 for I in range(len(BARBEIROS[filtrar_nota[i]]["servicos"])):
                     if len(BARBEIROS[filtrar_nota[i]]["servicos"][I]["avaliacao"]) == 0:
+                        preco_medio += BARBEIROS[filtrar_nota[i]]["servicos"][I]["valor"]
                         break
                     else:
                         media += sum(BARBEIROS[filtrar_nota[i]]["servicos"][I]["avaliacao"])/len(BARBEIROS[filtrar_nota[i]]["servicos"][I]["avaliacao"])
@@ -133,6 +134,7 @@ def painel_busca(chave):
                 preco_medio = 0
                 for I in range(len(BARBEIROS[filtrar_preco[i]]["servicos"])):
                     if len(BARBEIROS[filtrar_preco[i]]["servicos"][I]["avaliacao"]) == 0:
+                        preco_medio += BARBEIROS[filtrar_preco[i]]["servicos"][I]["valor"]
                         break
                     else:
                         media += sum(BARBEIROS[filtrar_preco[i]]["servicos"][I]["avaliacao"])/len(BARBEIROS[filtrar_preco[i]]["servicos"][I]["avaliacao"])
